@@ -29,7 +29,8 @@ function  clearAll () {
     pointText.innerText = "Point: Roll Dice to set point"
     dice1.style.background =""
     dice2.style.background =""
-    h2.innerHTML = ""
+    messages.innerHTML = ""
+    
         
 
 }
@@ -170,19 +171,21 @@ btn.addEventListener("click", function(event){
             pointText.innerText = "Lucky Shooter, You Win"
             bankroll = bankroll + wagerAmount
             bankrollDisplay.innerText = "Bankroll: " + bankroll
-            setInterval(clearAll, 2000)
+            setTimeout(clearAll, 2000)
 
             
         } else if (point === 2 || point === 3 || point === 12) {
             pointText.innerText = "Not So Lucky Shooter, You Crapped Out"
             bankroll = bankroll - wagerAmount
             bankrollDisplay.innerText = "Bankroll: " + bankroll
-            setInterval(clearAll, 2000)
+            setTimeout(clearAll, 2000)
         }    else { 
         pointText.innerText = "Current Point: " + point + " keep shooting to see how lucky you are!"
+        wagerDisplay.innerText ="Your current wager  is "+ wagerAmount+", If your feeling real lucky,  you can press your bet. Select chip to increase wager."
         } 
     }  else {
         let currentRoll = diceRollResult1 + diceRollResult2
+        messages.innerHTML =""
         let h2 = document.createElement('h2')
         messages.appendChild(h2)
 
@@ -190,15 +193,19 @@ btn.addEventListener("click", function(event){
             h2.innerText = "You hit your point... Your a real shooter kid!"
             bankroll = bankroll + wagerAmount
             bankrollDisplay.innerText = "Bankroll: " + bankroll
-            setInterval(clearAll, 2000)
+            setTimeout(clearAll, 2000)
             } else if (currentRoll === 7) {
             h2.innerText = "You crappeed out kid, the House always wins!!"
             bankroll = bankroll - wagerAmount
             bankrollDisplay.innerText = "Bankroll: " + bankroll
-            setInterval(clearAll, 2000)
+            setTimeout(clearAll, 2000)
             } else {
-            h2.innerText = "Keep shooting kid!"
-            setInterval(clearAll, 2000)
+                messages.innerHTML =""
+                let h2 = document.createElement('h2')
+                messages.appendChild(h2)
+                wagerDisplay.innerText = wagerDisplay.innerText ="Your current wager  is "+ wagerAmount+", If your feeling real lucky,  you can press your bet. Select chip to increase wager."
+                h2.innerText = "Keep shooting kid!"
+            
             
             }
         }
