@@ -1,0 +1,76 @@
+body{
+    background-color: green;
+    display: grid;
+    grid-template-columns: 1fr 8fr 1fr;
+    grid-template-rows: 1fr 3fr 1fr;
+    border: 2px solid red;
+    height: 100vh;
+    width: 100vw;
+
+}
+
+
+.gameboard{
+    border: 2px dashed black;
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row: 2 / span 1 ;
+    display: grid;
+    grid-template-columns: 1fr 10fr 1fr 10fr 1fr;
+    grid-template-rows: 1fr 5fr 1fr ;
+    
+}
+
+.scoreboard{
+    border: 2px dashed yellow;
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    
+
+}
+
+
+
+.dice1{
+    border: 2px solid blue;
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
+
+.dice2{
+    border: 2px solid blue;
+    grid-column-start: 4;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.wager-menu{
+    border: 2px dashed red;
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 3;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.wager-menu img {
+    height: 100px;
+    width: 100px;
+}
+
+.wager-menu h3{
+    display: inline-block
+}
+
