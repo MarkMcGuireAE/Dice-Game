@@ -8,7 +8,14 @@
 
 let point = 0
 let wagerAmount = 0
+let gameEndState = false
 let bankroll = 100
+let totalSideBets = 0
+
+// sidebet variables
+
+
+
 let dice1 = document.querySelector(".dice1")
 let dice2 = document.querySelector(".dice2")
 let pointText = document.querySelector(".point")
@@ -30,19 +37,31 @@ function  clearAll () {
     dice1.style.background =""
     dice2.style.background =""
     messages.innerHTML = ""
-    
-        
-
-}
+    }
 
 function wagerMoreThanRoll(wager) {
-    if (wager > bankroll - wagerAmount) {
+    if (wager > bankroll - (wagerAmount + totalSideBets)) {
         wagerAmount = wagerAmount
         wagerDisplay.innerText = "Wager Amount is " + wagerAmount
     } else {
         wagerAmount = wagerAmount + wager
         wagerDisplay.innerText = "Wager Amount is " + wagerAmount
     }
+}
+
+
+
+function gameOver () {
+    clearAll ()
+    scoreboard.innerHTML =""
+    let h1 = document.createElement('h1')
+    h1.innerText  =  "Unfortunately, the House broke your bankroll, press reset to play again."
+    scoreboard.appendChild(h1)
+    let resetButton = document.createElement('button')
+    resetButton.innerHTML = "reset"
+    scoreboard.appendChild(resetButton)
+
+
 }
 
 // console.log(diceRoll())
@@ -61,39 +80,105 @@ function wagerMoreThanRoll(wager) {
 
 // console.log(rollDice())
 
+
 let chip1 = document.querySelector(".c1")
-console.log(chip1)
 chip1.addEventListener("click", function(){
-    wagerMoreThanRoll(1)
+    wagerMoreThanRoll(1, wagerAmount, wagerDisplay)
     // wagerDisplay.innerText = "Wager Amount is " + wagerAmount
 })
 let chip5 = document.querySelector(".c5")
 chip5.addEventListener("click", function(){
     
-    wagerMoreThanRoll(5)
+    wagerMoreThanRoll(5, wagerAmount, wagerDisplay)
     // wagerDisplay.innerText = "Wager Amount is " + wagerAmount
 })
 let chip10 = document.querySelector(".c10")
 chip10.addEventListener("click", function(){
-    wagerMoreThanRoll(10)
+    wagerMoreThanRoll(10, wagerAmount, wagerDisplay)
     // wagerDisplay.innerText = "Wager Amount is " + wagerAmount
 })
 let chip25 = document.querySelector(".c25")
 chip25.addEventListener("click", function(){
-    wagerMoreThanRoll(25)
+    wagerMoreThanRoll(25, wagerAmount, wagerDisplay)
     // wagerDisplay.innerText = "Wager Amount is " + wagerAmount
 })
 let chip50 = document.querySelector(".c50")
 chip50.addEventListener("click", function(){
-    wagerMoreThanRoll(50)
+    wagerMoreThanRoll(50, wagerAmount, wagerDisplay)
     // wagerDisplay.innerText = "Wager Amount is " + wagerAmount
 })
 let chip100 = document.querySelector(".c100")
 chip100.addEventListener("click", function(){
-    wagerMoreThanRoll(100)
+    wagerMoreThanRoll(100, wagerAmount, wagerDisplay)
     // wagerDisplay.innerText = "Wager Amount is " + wagerAmount
 })
 
+// Side Bets////////////////
+
+let field = document.querySelector(".field")
+field.addEventListener("click", function(){
+
+    let fieldBet = 0
+    let fieldDisplay = document.querySelector(".field-amount")
+    function wagerMoreThanRollF(wager) {
+        if (wager > bankroll - (wagerAmount + fieldBet)) {
+            fieldBet = fieldBet
+            fieldDisplay.innerText = "Field Bet Amount is " + fieldBet
+        } else {
+            fieldBet = fieldBet + wager
+            fieldDisplay.innerText = "Field Bet Amount is " + fieldBet
+        }
+    }
+
+        let chip1 = document.querySelector(".fieldc1")
+        chip1.addEventListener("click", function(){
+            wagerMoreThanRollF(1)
+            // wagerDisplay.innerText = "Wager Amount is " + wagerAmount
+        })
+        let chip5 = document.querySelector(".fieldc5")
+        chip5.addEventListener("click", function(){
+            
+            wagerMoreThanRollF(5)
+            // wagerDisplay.innerText = "Wager Amount is " + wagerAmount
+        })
+        let chip10 = document.querySelector(".fieldc10")
+        chip10.addEventListener("click", function(){
+            wagerMoreThanRollF(10)
+            // wagerDisplay.innerText = "Wager Amount is " + wagerAmount
+        })
+        let chip25 = document.querySelector(".fieldc25")
+        chip25.addEventListener("click", function(){
+            wagerMoreThanRollF(25)
+            // wagerDisplay.innerText = "Wager Amount is " + wagerAmount
+        })
+        let chip50 = document.querySelector(".fieldc50")
+        chip50.addEventListener("click", function(){
+            wagerMoreThanRollF(50)
+            // wagerDisplay.innerText = "Wager Amount is " + wagerAmount
+        })
+        let chip100 = document.querySelector(".fieldc100")
+        chip100.addEventListener("click", function(){
+            wagerMoreThanRollF(100)
+            // wagerDisplay.innerText = "Wager Amount is " + wagerAmount
+        })
+
+        let clearButt = document.createElement("button")
+        clearButt.innerText = "Clear field bet"
+        let blankDiv1 = document.querySelector(".blank-div")
+        blankDiv1.innerHTML=""
+        blankDiv1.appendChild(clearButt)
+
+        clearButt.addEventListener("click", function(){
+            fieldBet = 0
+            fieldDisplay.innerText = "Field Bet Amount: No current wager"
+
+
+        })
+
+
+    
+
+})
 
 
 
@@ -171,14 +256,14 @@ btn.addEventListener("click", function(event){
             pointText.innerText = "Lucky Shooter, You Win"
             bankroll = bankroll + wagerAmount
             bankrollDisplay.innerText = "Bankroll: " + bankroll
-            setTimeout(clearAll, 2000)
+            setTimeout(clearAll, 3000)
 
             
         } else if (point === 2 || point === 3 || point === 12) {
             pointText.innerText = "Not So Lucky Shooter, You Crapped Out"
             bankroll = bankroll - wagerAmount
             bankrollDisplay.innerText = "Bankroll: " + bankroll
-            setTimeout(clearAll, 2000)
+            setTimeout(clearAll, 3000)
         }    else { 
         pointText.innerText = "Current Point: " + point + " keep shooting to see how lucky you are!"
         wagerDisplay.innerText ="Your current wager  is "+ wagerAmount+", If your feeling real lucky,  you can press your bet. Select chip to increase wager."
@@ -193,12 +278,12 @@ btn.addEventListener("click", function(event){
             h2.innerText = "You hit your point... Your a real shooter kid!"
             bankroll = bankroll + wagerAmount
             bankrollDisplay.innerText = "Bankroll: " + bankroll
-            setTimeout(clearAll, 2000)
+            setTimeout(clearAll, 3000)
             } else if (currentRoll === 7) {
             h2.innerText = "You crappeed out kid, the House always wins!!"
             bankroll = bankroll - wagerAmount
             bankrollDisplay.innerText = "Bankroll: " + bankroll
-            setTimeout(clearAll, 2000)
+            setTimeout(clearAll, 3000)
             } else {
                 messages.innerHTML =""
                 let h2 = document.createElement('h2')
@@ -209,7 +294,25 @@ btn.addEventListener("click", function(event){
             
             }
         }
+    
+        if (bankroll === 0) {
+            gameEndState = true
+            gameOver()        
+        }
+
+        resetButton.addEventListener("click", function(){
+            
+
+        })
+
+        // Side Bets 
+
+        
+
+    
     })
+
+    
 
    
 
