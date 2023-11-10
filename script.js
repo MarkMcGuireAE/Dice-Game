@@ -9,7 +9,7 @@
 let point = 0
 let wagerAmount = 0
 let gameEndState = false
-let bankroll = 100
+let bankroll = 250
 let totalSideBets = 0
 
 // sidebet variables
@@ -49,7 +49,29 @@ function wagerMoreThanRoll(wager) {
     }
 }
 
-
+function reset () {
+    // <div class="scoreboard">
+    //         <h2 class="bankroll">Bankroll: $100</h2>
+    //         <h2 class="point">Current Point: Roll Dice to set point</h2>
+    //         <h2 class="wager-amount">Wager Amount: Select Chips to Increase Wager</h2>
+    //         <div class="messages"></div>
+    //     </div>
+    bankroll = 250
+    wagerAmount = 0
+    scoreboard.innerHTML =""
+    let h2bankRoll = document.createElement("h2")
+    h2bankRoll.innerText = "Bankroll: $" + bankroll
+    scoreboard.appendChild(h2bankRoll)
+    let h2point = document.createElement("h2")
+    h2point.innerText = "Current Point: Roll Dice to set point"
+    scoreboard.appendChild(h2point)
+    let h2wagerAmount = document.createElement("h2")
+    h2wagerAmount.innerText = "Wager Amount: Select Chips to Increase Wager"
+    scoreboard.appendChild(h2wagerAmount)
+    let divMessages = document.createElement("div")
+    divMessages.classList.add("messages")
+    scoreboard.appendChild(divMessages)
+}
 
 function gameOver () {
     clearAll ()
@@ -60,6 +82,8 @@ function gameOver () {
     let resetButton = document.createElement('button')
     resetButton.innerHTML = "reset"
     scoreboard.appendChild(resetButton)
+    resetButton.addEventListener("click", function(){
+        reset () })
 
 
 }
@@ -114,6 +138,8 @@ chip100.addEventListener("click", function(){
 })
 
 // Side Bets////////////////
+
+///// field bet bar
 
 let field = document.querySelector(".field")
 field.addEventListener("click", function(){
@@ -297,14 +323,11 @@ btn.addEventListener("click", function(event){
     
         if (bankroll === 0) {
             gameEndState = true
-            gameOver()        
+            gameOver()  
+              
         }
 
-        resetButton.addEventListener("click", function(){
-            
-
-        })
-
+        
         // Side Bets 
 
         
