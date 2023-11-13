@@ -11,6 +11,7 @@ let wagerAmount = 0
 let gameEndState = false
 let bankroll = 250
 let totalSideBets = 0
+let fieldBet = 0
 
 // sidebet variables
 
@@ -23,12 +24,22 @@ let scoreboard = document.querySelector(".scoreboard")
 let messages = document.querySelector(".messages")
 let wagerDisplay = document.querySelector(".wager-amount")
 let bankrollDisplay = document.querySelector(".bankroll")
+let fieldDisplay = document.querySelector(".field-amount")
+let clearButt = document.createElement("button")
+let blankDiv1 = document.querySelector(".blank-div")
 
 
 function diceRoll () {
     let diceRoll  = Math.floor(Math.random() * (6  - 1 + 1) + 1)
     return diceRoll
 }
+// function not working. also bets continuee to add up in field. and want to mmake it so you have to click field again to bee able to bet.
+function clearField () {
+    fieldDisplay.innerText = "Field Bet Amount: No current wager"
+    fieldBet = 0
+    blankDiv1.innerHTML = ""
+}
+
 function  clearAll () {
     wagerAmount = 0
     wagerDisplay.innerText = "Wager Amount: Select Chips to Increase Wager"
@@ -37,27 +48,25 @@ function  clearAll () {
     dice1.style.background =""
     dice2.style.background =""
     messages.innerHTML = ""
+    clearField ()
     }
 
-function wagerMoreThanRoll(wager) {
-    if (wager > bankroll - (wagerAmount + totalSideBets)) {
-        wagerAmount = wagerAmount
-        wagerDisplay.innerText = "Wager Amount is " + wagerAmount
-    } else {
-        wagerAmount = wagerAmount + wager
-        wagerDisplay.innerText = "Wager Amount is " + wagerAmount
-    }
-}
+
+
+// function wagerMoreThanRoll(wager) {
+//     if (wager > bankroll - (wagerAmount + totalSideBets)) {
+//         wagerAmount = wagerAmount
+//         wagerDisplay.innerText = "Wager Amount is " + wagerAmount
+//     } else {
+//         wagerAmount = wagerAmount + wager
+//         wagerDisplay.innerText = "Wager Amount is " + wagerAmount
+//     }
+// }
 
 function reset () {
-    // <div class="scoreboard">
-    //         <h2 class="bankroll">Bankroll: $100</h2>
-    //         <h2 class="point">Current Point: Roll Dice to set point</h2>
-    //         <h2 class="wager-amount">Wager Amount: Select Chips to Increase Wager</h2>
-    //         <div class="messages"></div>
-    //     </div>
     bankroll = 250
     wagerAmount = 0
+    point = 0
     scoreboard.innerHTML =""
     let h2bankRoll = document.createElement("h2")
     h2bankRoll.innerText = "Bankroll: $" + bankroll
@@ -88,6 +97,16 @@ function gameOver () {
 
 }
 
+function wagerMoreThanRoll(wager) {
+    if (wager > bankroll - (wagerAmount + totalSideBets)) {
+        wagerAmount = wagerAmount
+        wagerDisplay.innerText = "Wager Amount is " + wagerAmount
+    } else {
+        wagerAmount = wagerAmount + wager
+        wagerDisplay.innerText = "Wager Amount is " + wagerAmount
+    }
+}
+
 // console.log(diceRoll())
 
 // function diceRoll2 () {
@@ -107,33 +126,33 @@ function gameOver () {
 
 let chip1 = document.querySelector(".c1")
 chip1.addEventListener("click", function(){
-    wagerMoreThanRoll(1, wagerAmount, wagerDisplay)
+    wagerMoreThanRoll(1)
     // wagerDisplay.innerText = "Wager Amount is " + wagerAmount
 })
 let chip5 = document.querySelector(".c5")
 chip5.addEventListener("click", function(){
     
-    wagerMoreThanRoll(5, wagerAmount, wagerDisplay)
+    wagerMoreThanRoll(5)
     // wagerDisplay.innerText = "Wager Amount is " + wagerAmount
 })
 let chip10 = document.querySelector(".c10")
 chip10.addEventListener("click", function(){
-    wagerMoreThanRoll(10, wagerAmount, wagerDisplay)
+    wagerMoreThanRoll(10)
     // wagerDisplay.innerText = "Wager Amount is " + wagerAmount
 })
 let chip25 = document.querySelector(".c25")
 chip25.addEventListener("click", function(){
-    wagerMoreThanRoll(25, wagerAmount, wagerDisplay)
+    wagerMoreThanRoll(25)
     // wagerDisplay.innerText = "Wager Amount is " + wagerAmount
 })
 let chip50 = document.querySelector(".c50")
 chip50.addEventListener("click", function(){
-    wagerMoreThanRoll(50, wagerAmount, wagerDisplay)
+    wagerMoreThanRoll(50)
     // wagerDisplay.innerText = "Wager Amount is " + wagerAmount
 })
 let chip100 = document.querySelector(".c100")
 chip100.addEventListener("click", function(){
-    wagerMoreThanRoll(100, wagerAmount, wagerDisplay)
+    wagerMoreThanRoll(100)
     // wagerDisplay.innerText = "Wager Amount is " + wagerAmount
 })
 
@@ -144,8 +163,9 @@ chip100.addEventListener("click", function(){
 let field = document.querySelector(".field")
 field.addEventListener("click", function(){
 
-    let fieldBet = 0
-    let fieldDisplay = document.querySelector(".field-amount")
+
+      
+    
     function wagerMoreThanRollF(wager) {
         if (wager > bankroll - (wagerAmount + fieldBet)) {
             fieldBet = fieldBet
@@ -195,8 +215,7 @@ field.addEventListener("click", function(){
         blankDiv1.appendChild(clearButt)
 
         clearButt.addEventListener("click", function(){
-            fieldBet = 0
-            fieldDisplay.innerText = "Field Bet Amount: No current wager"
+            clearField  ()
 
 
         })
@@ -213,6 +232,8 @@ let btn = document.querySelector(".roll-dice")
 btn.addEventListener("click", function(event){
     let diceRollResult1 = diceRoll()
     let diceRollResult2 = diceRoll()
+
+  
     
     
 
@@ -273,7 +294,27 @@ btn.addEventListener("click", function(event){
                 dice2.style.backgroundRepeat  = "no-repeat"
                 }
 
-  
+  console.log(fieldBet)
+
+  if (fieldBet !== 0) {
+        let fieldBetRoll = diceRollResult1 + diceRollResult2
+        if (fieldBetRoll === 2 || fieldBetRoll === 12) {
+            bankroll = bankroll + fieldBet * 2
+            bankrollDisplay.innerText = "Bankroll: " + bankroll
+            fieldDisplay.innerText = "You won your field bet, house pays you 2:1! Click field bet icon to place another bet!"
+            fieldBet = 0
+        } else if (fieldBetRoll === 3 || fieldBetRoll === 4 || fieldBetRoll === 9 || fieldBetRoll === 10 || fieldBetRoll === 11) {
+            bankroll = bankroll + fieldBet
+            bankrollDisplay.innerText = "Bankroll: " + bankroll
+            fieldDisplay.innerText = "You won your field bet, house pays you even money! Click field bet icon to place another bet!"
+            fieldBet = 0
+        } else {
+            bankroll = bankroll - fieldBet
+            bankrollDisplay.innerText = "Bankroll: " + bankroll
+            fieldDisplay.innerText = "You lost your field bet. Click field bet icon to place another bet!"
+            fieldBet = 0
+        }
+}
 
     if (point === 0) {
         point = diceRollResult1  + diceRollResult2
@@ -320,21 +361,42 @@ btn.addEventListener("click", function(event){
             
             }
         }
+
+        if (fieldBet !== 0) {
+            let fieldBetRoll = diceRollResult1 + diceRollResult2
+                if (fieldBetRoll === 2 || fieldBetRoll === 12) {
+                    bankroll = bankroll + fieldBet * 2
+                    bankrollDisplay.innerText = "Bankroll: " + bankroll
+                    fieldDisplay.innerText = "You won your field bet, house pays you 2:1! Click field bet icon to place another bet!"
+                    clearField ()
+                } else if (fieldBetRoll === 3 || fieldBetRoll === 4 || fieldBetRoll === 9 || fieldBetRoll === 10 || fieldBetRoll === 11) {
+                    bankroll = bankroll + fieldBet
+                    bankrollDisplay.innerText = "Bankroll: " + bankroll
+                    fieldDisplay.innerText = "You won your field bet, house pays you even money! Click field bet icon to place another bet!"
+                    clearField ()
+                } else {
+                    bankroll = bankroll - fieldBet
+                    bankrollDisplay.innerText = "Bankroll: " + bankroll
+                    fieldDisplay.innerText = "You lost your field bet. Click field bet icon to place another bet!"
+                    clearField ()
+                }
+        }
     
         if (bankroll === 0) {
-            gameEndState = true
-            gameOver()  
+            
+            setTimeout(gameOver, 3000)  
               
         }
 
         
-        // Side Bets 
+        
 
         
 
     
     })
 
+    
     
 
    
