@@ -109,3 +109,14 @@ body{
 .hardway {
     width: 100%;
 }
+
+.placebet-chips{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+.placebet-chips img {
+    height: 60px;
+    width:  60px;
+}

@@ -35,6 +35,7 @@ let any7Display = document.querySelector(".any7-amount")
 let blankDiv2 = document.querySelector(".blank-div2")
 let anyCrapsDisplay = document.querySelector(".anyCrap-amount")
 let blankDiv3 = document.querySelector(".blank-div3")
+let placeBetsMessage = document.querySelector(".placebets")
 
 
 function diceRoll () {
@@ -77,8 +78,54 @@ function  clearAll () {
     dice2.style.background =""
     messages.innerHTML = ""
     clearField ()
+    clear7 ()
+    clearCraps ()
     }
 
+function clearSide () {
+    clearField ()
+    clear7 ()
+    clearCraps ()
+}
+
+function placeBetMenu () {
+    placeBetsMessage.innerText = "Click on the Number Icons below to wager on a Place Bet. If Place Bet has a current wager, a chip will appear on number icon."
+    let h4 = document.createElement ("h4")
+    
+    
+    
+    let div4 = document.createElement("div")
+    div4.classList.add("placebet-icons")
+    let placeBet4 = document.createElement("img")
+    placeBet4.src = "img/place4.png"
+    div4.appendChild(placeBet4)
+    placeBetsMessage.appendChild(div4)
+
+
+
+
+    let div5 = document.createElement("div")
+    div5.classList.add("placebet-chips")
+    let placeBetChip1 = document.createElement("img")
+    placeBetChip1.src = "img/1 chip.png"
+    div5.appendChild(placeBetChip1)
+    let placeBetChip5 = document.createElement("img")
+    placeBetChip5.src = "img/5 chip.png"
+    div5.appendChild(placeBetChip5)
+    let placeBetChip10 = document.createElement("img")
+    placeBetChip10.src = "img/10 chip.png"
+    div5.appendChild(placeBetChip10)
+    let placeBetChip25 = document.createElement("img")
+    placeBetChip25.src = "img/25 chip.png"
+    div5.appendChild(placeBetChip25)
+    let placeBetChip50 = document.createElement("img")
+    placeBetChip50.src = "img/50 chip.png"
+    div5.appendChild(placeBetChip50)
+    let placeBetChip100 = document.createElement("img")
+    placeBetChip100.src = "img/100 chip.png"
+    div5.appendChild(placeBetChip100)
+    placeBetsMessage.appendChild(div5)
+}
 
 
 // function wagerMoreThanRoll(wager) {
@@ -477,19 +524,64 @@ btn.addEventListener("click", function(event){
             bankroll = bankroll + fieldBet * 2
             bankrollDisplay.innerText = "Bankroll: " + bankroll
             fieldDisplay.innerText = "You won your field bet, house pays you 2:1! Click field bet icon to place another bet!"
-            fieldBet = 0
+            setTimeout(clearField, 3000)
+            setTimeout(clearSide, 3100)
+            
+            
         } else if (fieldBetRoll === 3 || fieldBetRoll === 4 || fieldBetRoll === 9 || fieldBetRoll === 10 || fieldBetRoll === 11) {
             bankroll = bankroll + fieldBet
             bankrollDisplay.innerText = "Bankroll: " + bankroll
             fieldDisplay.innerText = "You won your field bet, house pays you even money! Click field bet icon to place another bet!"
-            fieldBet = 0
+            setTimeout(clearField, 3000)
+            setTimeout(clearSide, 3100)
+           
+
         } else {
             bankroll = bankroll - fieldBet
             bankrollDisplay.innerText = "Bankroll: " + bankroll
             fieldDisplay.innerText = "You lost your field bet. Click field bet icon to place another bet!"
-            fieldBet = 0
+            setTimeout(clearField, 3000)
+            setTimeout(clearSide, 3100)
+           
         }
 }
+
+if (any7 !== 0) {
+    let any7Roll = diceRollResult1 + diceRollResult2
+    if (any7Roll === 7 ) {
+        bankroll = bankroll + any7 * 5
+        bankrollDisplay.innerText = "Bankroll: " + bankroll
+        any7Display.innerText = "You won your Any 7 bet, house pays you 5:1! Click Any 7 bet icon to place another bet!"
+        setTimeout(clear7, 3000)
+        setTimeout(clearSide, 3100)
+    } else {
+        bankroll = bankroll - any7
+        bankrollDisplay.innerText = "Bankroll: " + bankroll
+        any7Display.innerText = "You lost your Any 7 bet. Click Any 7 bet icon to place another bet!"
+        setTimeout(clear7, 3000)
+        setTimeout(clearSide, 3100)
+    }
+}
+
+if (anyCraps !== 0) {
+    let anyCrapsRoll = diceRollResult1 + diceRollResult2
+    if (anyCrapsRoll === 2 || anyCrapsRoll === 3 || anyCrapsRoll === 12) {
+        bankroll = bankroll + anyCraps * 8
+        bankrollDisplay.innerText = "Bankroll: " + bankroll
+        anyCrapsDisplay.innerText = "You won your Any Craps bet, house pays you 8:1! Click Any Craps bet icon to place another bet!"
+        setTimeout(clearCraps, 3000)
+        setTimeout(clearSide, 3100)
+    } else {
+        bankroll = bankroll - any7
+        bankrollDisplay.innerText = "Bankroll: " + bankroll
+        anyCrapsDisplay.innerText = "You lost your Any Craps bet. Click Any Craps icon to place another bet!"
+        setTimeout(clearCraps, 3000)
+        setTimeout(clearSide, 3100)
+    }
+}
+
+
+
 
     if (point === 0) {
         point = diceRollResult1  + diceRollResult2
@@ -506,9 +598,14 @@ btn.addEventListener("click", function(event){
             bankroll = bankroll - wagerAmount
             bankrollDisplay.innerText = "Bankroll: " + bankroll
             setTimeout(clearAll, 3000)
-        }    else { 
+        }    
+        else { 
         pointText.innerText = "Current Point: " + point + " keep shooting to see how lucky you are!"
         wagerDisplay.innerText ="Your current wager  is "+ wagerAmount+", If your feeling real lucky,  you can press your bet. Select chip to increase wager."
+        placeBetsMessage.innerText = "Click on the Number Icons below to wager on a Place Bet. If Place Bet has a current wager, a chip will appear on number icon."
+        placeBetMenu ()
+
+
         } 
     }  else {
         let currentRoll = diceRollResult1 + diceRollResult2
@@ -537,29 +634,29 @@ btn.addEventListener("click", function(event){
             }
         }
 
-        if (fieldBet !== 0) {
-            let fieldBetRoll = diceRollResult1 + diceRollResult2
-                if (fieldBetRoll === 2 || fieldBetRoll === 12) {
-                    bankroll = bankroll + fieldBet * 2
-                    bankrollDisplay.innerText = "Bankroll: " + bankroll
-                    fieldDisplay.innerText = "You won your field bet, house pays you 2:1! Click field bet icon to place another bet!"
-                    clearField ()
-                } else if (fieldBetRoll === 3 || fieldBetRoll === 4 || fieldBetRoll === 9 || fieldBetRoll === 10 || fieldBetRoll === 11) {
-                    bankroll = bankroll + fieldBet
-                    bankrollDisplay.innerText = "Bankroll: " + bankroll
-                    fieldDisplay.innerText = "You won your field bet, house pays you even money! Click field bet icon to place another bet!"
-                    clearField ()
-                } else {
-                    bankroll = bankroll - fieldBet
-                    bankrollDisplay.innerText = "Bankroll: " + bankroll
-                    fieldDisplay.innerText = "You lost your field bet. Click field bet icon to place another bet!"
-                    clearField ()
-                }
-        }
+        // if (fieldBet !== 0) {
+        //     let fieldBetRoll = diceRollResult1 + diceRollResult2
+        //         if (fieldBetRoll === 2 || fieldBetRoll === 12) {
+        //             bankroll = bankroll + fieldBet * 2
+        //             bankrollDisplay.innerText = "Bankroll: " + bankroll
+        //             fieldDisplay.innerText = "You won your field bet, house pays you 2:1! Click field bet icon to place another bet!"
+        //             clearField ()
+        //         } else if (fieldBetRoll === 3 || fieldBetRoll === 4 || fieldBetRoll === 9 || fieldBetRoll === 10 || fieldBetRoll === 11) {
+        //             bankroll = bankroll + fieldBet
+        //             bankrollDisplay.innerText = "Bankroll: " + bankroll
+        //             fieldDisplay.innerText = "You won your field bet, house pays you even money! Click field bet icon to place another bet!"
+        //             clearField ()
+        //         } else {
+        //             bankroll = bankroll - fieldBet
+        //             bankrollDisplay.innerText = "Bankroll: " + bankroll
+        //             fieldDisplay.innerText = "You lost your field bet. Click field bet icon to place another bet!"
+        //             clearField ()
+        //         }
+        // }
     
         if (bankroll === 0) {
             
-            setTimeout(gameOver, 3000)  
+            setTimeout(gameOver, 2000)  
               
         }
 
