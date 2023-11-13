@@ -10,8 +10,11 @@ let point = 0
 let wagerAmount = 0
 let gameEndState = false
 let bankroll = 250
-let totalSideBets = 0
 let fieldBet = 0
+let any7 = 0 
+let anyCraps = 0
+let totalSideBets = 0
+
 
 // sidebet variables
 
@@ -27,6 +30,11 @@ let bankrollDisplay = document.querySelector(".bankroll")
 let fieldDisplay = document.querySelector(".field-amount")
 let clearButt = document.createElement("button")
 let blankDiv1 = document.querySelector(".blank-div")
+let sideBetDisplay = document.querySelector(".sidebet-display")
+let any7Display = document.querySelector(".any7-amount")
+let blankDiv2 = document.querySelector(".blank-div2")
+let anyCrapsDisplay = document.querySelector(".anyCrap-amount")
+let blankDiv3 = document.querySelector(".blank-div3")
 
 
 function diceRoll () {
@@ -36,9 +44,29 @@ function diceRoll () {
 // function not working. also bets continuee to add up in field. and want to mmake it so you have to click field again to bee able to bet.
 function clearField () {
     fieldDisplay.innerText = "Field Bet Amount: No current wager"
+    totalSideBets = totalSideBets - fieldBet
+    sideBetDisplay.innerText = "Total Side Bets: " + totalSideBets
     fieldBet = 0
     blankDiv1.innerHTML = ""
+    
 }
+
+function clear7 () {
+    any7Display.innerText = "Any 7 Bet Amount: No current wager"
+    totalSideBets = totalSideBets - any7
+    sideBetDisplay.innerText = "Total Side Bets: " + totalSideBets
+    any7 = 0
+    blankDiv2.innerHTML = ""
+}
+
+function clearCraps () {
+    anyCrapsDisplay.innerText = "Any Craps Bet Amount: No current wager"
+    totalSideBets = totalSideBets - anyCraps
+    sideBetDisplay.innerText = "Total Side Bets: " + totalSideBets
+    anyCraps = 0
+    blankDiv3.innerHTML = ""
+}
+
 
 function  clearAll () {
     wagerAmount = 0
@@ -64,22 +92,23 @@ function  clearAll () {
 // }
 
 function reset () {
-    bankroll = 250
-    wagerAmount = 0
-    point = 0
-    scoreboard.innerHTML =""
-    let h2bankRoll = document.createElement("h2")
-    h2bankRoll.innerText = "Bankroll: $" + bankroll
-    scoreboard.appendChild(h2bankRoll)
-    let h2point = document.createElement("h2")
-    h2point.innerText = "Current Point: Roll Dice to set point"
-    scoreboard.appendChild(h2point)
-    let h2wagerAmount = document.createElement("h2")
-    h2wagerAmount.innerText = "Wager Amount: Select Chips to Increase Wager"
-    scoreboard.appendChild(h2wagerAmount)
-    let divMessages = document.createElement("div")
-    divMessages.classList.add("messages")
-    scoreboard.appendChild(divMessages)
+    // bankroll = 250
+    // wagerAmount = 0
+    // point = 0
+    // scoreboard.innerHTML =""
+    // let h2bankRoll = document.createElement("h2")
+    // h2bankRoll.innerText = "Bankroll: $" + bankroll
+    // scoreboard.appendChild(h2bankRoll)
+    // let h2point = document.createElement("h2")
+    // h2point.innerText = "Current Point: Roll Dice to set point"
+    // scoreboard.appendChild(h2point)
+    // let h2wagerAmount = document.createElement("h2")
+    // h2wagerAmount.innerText = "Wager Amount: Select Chips to Increase Wager"
+    // scoreboard.appendChild(h2wagerAmount)
+    // let divMessages = document.createElement("div")
+    // divMessages.classList.add("messages")
+    // scoreboard.appendChild(divMessages)
+    location.reload()
 }
 
 function gameOver () {
@@ -98,12 +127,15 @@ function gameOver () {
 }
 
 function wagerMoreThanRoll(wager) {
-    if (wager > bankroll - (wagerAmount + totalSideBets)) {
+    if (wager > bankroll - (wagerAmount + fieldBet + any7 + anyCraps)) {
         wagerAmount = wagerAmount
         wagerDisplay.innerText = "Wager Amount is " + wagerAmount
+        
     } else {
         wagerAmount = wagerAmount + wager
         wagerDisplay.innerText = "Wager Amount is " + wagerAmount
+        
+
     }
 }
 
@@ -167,12 +199,17 @@ field.addEventListener("click", function(){
       
     
     function wagerMoreThanRollF(wager) {
-        if (wager > bankroll - (wagerAmount + fieldBet)) {
+        if (wager > bankroll - (wagerAmount + fieldBet + any7 + anyCraps)) {
             fieldBet = fieldBet
+            totalSideBets = fieldBet + any7 + anyCraps
             fieldDisplay.innerText = "Field Bet Amount is " + fieldBet
+            sideBetDisplay.innerText = "Total Side Bets: " + totalSideBets
+            
         } else {
             fieldBet = fieldBet + wager
+            totalSideBets = fieldBet + any7 + anyCraps
             fieldDisplay.innerText = "Field Bet Amount is " + fieldBet
+            sideBetDisplay.innerText = "Total Side Bets: " + totalSideBets
         }
     }
 
@@ -209,13 +246,151 @@ field.addEventListener("click", function(){
         })
 
         let clearButt = document.createElement("button")
-        clearButt.innerText = "Clear field bet"
+        clearButt.innerText = "Clear Field bet"
         let blankDiv1 = document.querySelector(".blank-div")
         blankDiv1.innerHTML=""
         blankDiv1.appendChild(clearButt)
 
         clearButt.addEventListener("click", function(){
             clearField  ()
+
+
+        })
+
+
+    
+
+})
+
+let any7pic = document.querySelector(".any7")
+any7pic.addEventListener("click", function(){
+
+
+      
+    
+    function wagerMoreThanRoll7(wager) {
+        if (wager > bankroll - (wagerAmount + fieldBet + any7 + anyCraps)) {
+            any7 = any7
+            totalSideBets = fieldBet + any7 + anyCraps
+            any7Display.innerText = "Any 7 Bet Amount is " + any7
+            sideBetDisplay.innerText = "Total Side Bets: " + totalSideBets
+            
+        } else {
+            any7 = any7 + wager
+            totalSideBets = fieldBet + any7 + anyCraps
+            any7Display.innerText = "Any 7 Bet Amount is " + any7
+            sideBetDisplay.innerText = "Total Side Bets: " + totalSideBets
+        }
+    }
+
+        let chip1 = document.querySelector(".any7c1")
+        chip1.addEventListener("click", function(){
+            wagerMoreThanRoll7(1)
+            // wagerDisplay.innerText = "Wager Amount is " + wagerAmount
+        })
+        let chip5 = document.querySelector(".any7c5")
+        chip5.addEventListener("click", function(){
+            
+            wagerMoreThanRoll7(5)
+            // wagerDisplay.innerText = "Wager Amount is " + wagerAmount
+        })
+        let chip10 = document.querySelector(".any7c10")
+        chip10.addEventListener("click", function(){
+            wagerMoreThanRoll7(10)
+            // wagerDisplay.innerText = "Wager Amount is " + wagerAmount
+        })
+        let chip25 = document.querySelector(".any7c25")
+        chip25.addEventListener("click", function(){
+            wagerMoreThanRoll7(25)
+            // wagerDisplay.innerText = "Wager Amount is " + wagerAmount
+        })
+        let chip50 = document.querySelector(".any7c50")
+        chip50.addEventListener("click", function(){
+            wagerMoreThanRoll7(50)
+            // wagerDisplay.innerText = "Wager Amount is " + wagerAmount
+        })
+        let chip100 = document.querySelector(".any7c100")
+        chip100.addEventListener("click", function(){
+            wagerMoreThanRoll7(100)
+            // wagerDisplay.innerText = "Wager Amount is " + wagerAmount
+        })
+
+        let clearButt2 = document.createElement("button")
+        clearButt2.innerText = "Clear Any 7 bet"
+        blankDiv2.innerHTML=""
+        blankDiv2.appendChild(clearButt2)
+
+        clearButt2.addEventListener("click", function(){
+            clear7 ()
+
+
+        })
+
+
+    
+
+})
+
+let anyCrapPic = document.querySelector(".anyCraps")
+anyCrapPic.addEventListener("click", function(){
+
+
+      
+    
+    function wagerMoreThanRollC(wager) {
+        if (wager > bankroll - (wagerAmount + fieldBet + any7 + anyCraps)) {
+            anyCraps = anyCraps
+            totalSideBets = fieldBet + any7 + anyCraps
+            anyCrapsDisplay.innerText = "Any Craps Bet Amount is " + anyCraps
+            sideBetDisplay.innerText = "Total Side Bets: " + totalSideBets
+            
+        } else {
+            anyCraps = anyCraps + wager
+            totalSideBets = fieldBet + any7 + anyCraps
+            anyCrapsDisplay.innerText = "Any Craps Bet Amount is " + anyCraps
+            sideBetDisplay.innerText = "Total Side Bets: " + totalSideBets
+        }
+    }
+
+        let chip1 = document.querySelector(".anycrapsc1")
+        chip1.addEventListener("click", function(){
+            wagerMoreThanRollC(1)
+            // wagerDisplay.innerText = "Wager Amount is " + wagerAmount
+        })
+        let chip5 = document.querySelector(".anycrapsc5")
+        chip5.addEventListener("click", function(){
+            
+            wagerMoreThanRollC(5)
+            // wagerDisplay.innerText = "Wager Amount is " + wagerAmount
+        })
+        let chip10 = document.querySelector(".anycrapsc10")
+        chip10.addEventListener("click", function(){
+            wagerMoreThanRollC(10)
+            // wagerDisplay.innerText = "Wager Amount is " + wagerAmount
+        })
+        let chip25 = document.querySelector(".anycrapsc25")
+        chip25.addEventListener("click", function(){
+            wagerMoreThanRollC(25)
+            // wagerDisplay.innerText = "Wager Amount is " + wagerAmount
+        })
+        let chip50 = document.querySelector(".anycrapsc50")
+        chip50.addEventListener("click", function(){
+            wagerMoreThanRollC(50)
+            // wagerDisplay.innerText = "Wager Amount is " + wagerAmount
+        })
+        let chip100 = document.querySelector(".anycrapsc100")
+        chip100.addEventListener("click", function(){
+            wagerMoreThanRollC(100)
+            // wagerDisplay.innerText = "Wager Amount is " + wagerAmount
+        })
+
+        let clearButt3 = document.createElement("button")
+        clearButt3.innerText = "Clear Any Craps bet"
+        blankDiv3.innerHTML=""
+        blankDiv3.appendChild(clearButt3)
+
+        clearButt3.addEventListener("click", function(){
+            clearCraps ()
 
 
         })

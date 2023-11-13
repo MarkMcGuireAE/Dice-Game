@@ -2,7 +2,7 @@ body{
     background-color: green;
     display: grid;
     grid-template-columns: 1fr 3fr;
-    grid-template-rows: 1fr  1fr;
+    grid-template-rows: 1fr 3fr 1fr;
     border: 2px solid red;
     height: 100vh;
     width: 100vw;
@@ -18,7 +18,7 @@ body{
     display: grid;
     grid-template-columns: 1fr 10fr 1fr 10fr 1fr;
     grid-template-rows: 1fr 5fr 1fr ;
-    height: 100px;
+    
     
 }
 
@@ -28,16 +28,18 @@ body{
     grid-column-end: 2;
     grid-row-start: 1;
     grid-row-end: 1;
-    height: 200px;
+    
     
 
 }
 
-/* .sidebet-menu {
+.sidebet-menu {
     border: 2px dashed black;
     grid-column-start: 1;
     grid-column-end: 1;
-} */
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
 
 
 
@@ -66,8 +68,8 @@ body{
     border: 2px dashed red;
     grid-column-start: 2;
     grid-column-end: 2;
-    grid-row-start: 3;
-    grid-row-end: 3;
+    /* grid-row-start: 3;
+    grid-row-end: 3; */
     display: flex;
     justify-content: space-around;
 
