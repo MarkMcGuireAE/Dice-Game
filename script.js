@@ -148,7 +148,7 @@ let placeBetNumber = {
             option: true},
     "9" : { value: 0,
             option: true},
-    "0" : { value: 0,
+    "10" : { value: 0,
             option: true},
     
 
@@ -273,12 +273,15 @@ let div5 = document.createElement("div")
         let property = text.split(":")[0]
         console.log(property)
         property = property[property.length-1]
+        if (property == "0"){
+            property = "10"
+        }
         console.log(property)
         
         if(placeBetNumber[property].option){
 
         
-            placeBetNumber[property] = placeBetNumber[property].value+10
+            placeBetNumber[property].value = placeBetNumber[property].value+1
             text = `Bet on ${property}: ${placeBetNumber[property].value}`
             console.log(placeBetNumber)
             console.log(text)
@@ -291,11 +294,14 @@ let div5 = document.createElement("div")
         let text = bets[activeButton].innerText
         let property = text.split(":")[0]
         property = property[property.length-1]
+        if (property == "0"){
+            property = "10"
+        }
        
         if(placeBetNumber[property].option){
 
         
-            placeBetNumber[property] = placeBetNumber[property].value+10
+            placeBetNumber[property].value = placeBetNumber[property].value+5
             text = `Bet on ${property}: ${placeBetNumber[property].value}`
             console.log(placeBetNumber)
             console.log(text)
@@ -310,10 +316,13 @@ let div5 = document.createElement("div")
         let text = bets[activeButton].innerText
         let property = text.split(":")[0]
         property = property[property.length-1]
+        if (property == "0"){
+            property = "10"
+        }
         if(placeBetNumber[property].option){
 
         
-        placeBetNumber[property] = placeBetNumber[property].value+10
+        placeBetNumber[property].value = placeBetNumber[property].value+10
         text = `Bet on ${property}: ${placeBetNumber[property].value}`
         console.log(placeBetNumber)
         console.log(text)
@@ -327,12 +336,18 @@ let div5 = document.createElement("div")
         let text = bets[activeButton].innerText
         let property = text.split(":")[0]
         property = property[property.length-1]
+        if (property == "0"){
+            property = "10"
+        }
+        if(placeBetNumber[property].option){
+
         
-        placeBetNumber[property] = placeBetNumber[property]+25
-        text = `Bet on ${property}: ${placeBetNumber[property]}`
+        placeBetNumber[property].value = placeBetNumber[property].value+25
+        text = `Bet on ${property}: ${placeBetNumber[property].value}`
         console.log(placeBetNumber)
         console.log(text)
         bets[activeButton].innerText = text
+        }
     })
 
    
@@ -342,15 +357,18 @@ let div5 = document.createElement("div")
         let property = text.split(":")[0]
         property = property[property.length-1]
         
+        if (property == "0"){
+            property = "10"
+        }
         if(placeBetNumber[property].option){
 
         
-            placeBetNumber[property] = placeBetNumber[property].value+10
-            text = `Bet on ${property}: ${placeBetNumber[property].value}`
-            console.log(placeBetNumber)
-            console.log(text)
-            bets[activeButton].innerText = text
-            }
+        placeBetNumber[property].value = placeBetNumber[property].value+50
+        text = `Bet on ${property}: ${placeBetNumber[property].value}`
+        console.log(placeBetNumber)
+        console.log(text)
+        bets[activeButton].innerText = text
+        }
     })
 
     
@@ -360,15 +378,18 @@ let div5 = document.createElement("div")
         let property = text.split(":")[0]
         property = property[property.length-1]
         
+        if (property == "0"){
+            property = "10"
+        }
         if(placeBetNumber[property].option){
 
         
-            placeBetNumber[property] = placeBetNumber[property].value+10
-            text = `Bet on ${property}: ${placeBetNumber[property].value}`
-            console.log(placeBetNumber)
-            console.log(text)
-            bets[activeButton].innerText = text
-            }
+        placeBetNumber[property].value = placeBetNumber[property].value+100
+        text = `Bet on ${property}: ${placeBetNumber[property].value}`
+        console.log(placeBetNumber)
+        console.log(text)
+        bets[activeButton].innerText = text
+        }
     })
 
     
@@ -1074,7 +1095,15 @@ if (anyCraps !== 0) {
     }
 }
 
-
+// if (placeBetNumber[4].value === 0 && placeBetNumber[5].value === 0 && placeBetNumber[6].value === 0 && placeBetNumber[8].value === 0 && placeBetNumber[9].value === 0 && placeBetNumber[10].value === 0) {
+//     scoreboard.innerHTML = ""
+//     <h2 class="bankroll">Bankroll: $250</h2>
+//     wagerAmount = 0
+//     wagerDisplay.innerText = "Wager Amount: Select Chips to Increase Wager"
+//     pointText.innerText = "Point: Roll Dice to set point"
+//     dice1.style.background =""
+//     dice2.style.background =""
+//     messages.innerHTML = ""
 
 
     if (point === 0) {
