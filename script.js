@@ -287,11 +287,22 @@ let div5 = document.createElement("div")
 
         clearButtPlace4.addEventListener("click", function(){
             
+            
             placeBet4amount = 0
-    placebet4amountDis.innerText = "Bet on 4: " + placeBet4amount
-    placeBetAmount = 0
-    h4.innerText = "Press a Place Bet Icon and then choose wager amount to add a place bet."
-    console.log(placeBetAmount)
+            placeBet5amount = 0
+            placeBet6amount = 0
+            placeBet8amount = 0
+            placeBet9amount = 0
+            placeBet10amount = 0
+            placebet4amountDis.innerText = "Bet on 4: " + placeBet4amount
+            placebet5amountDis.innerText = "Bet on 5: " + placeBet5amount
+            placebet6amountDis.innerText= "Bet on 6: " + placeBet6amount
+            placebet8amountDis.innerText= "Bet on 8: " + placeBet8amount
+            placebet9amountDis.innerText ="Bet on 9: " + placeBet9amount
+            placebet10amountDis.innerText = "Bet on 10: " + placeBet10amount
+            placeBetAmount = 0
+            h4.innerText = "Press a Place Bet Icon and then choose wager amount to add a place bet."
+            console.log(placeBetAmount)
 
 
         })
