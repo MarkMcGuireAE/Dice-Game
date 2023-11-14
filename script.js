@@ -495,28 +495,23 @@ any7pic.addEventListener("click", function(){
 
 })
 
-let anyCrapPic = document.querySelector(".anyCraps")
-anyCrapPic.addEventListener("click", function(){
-
-
-      
-    
-    function wagerMoreThanRollC(wager) {
-        if (wager > bankroll - (wagerAmount + fieldBet + any7 + anyCraps)) {
-            anyCraps = anyCraps
-            totalSideBets = fieldBet + any7 + anyCraps
-            anyCrapsDisplay.innerText = "Any Craps Bet Amount is " + anyCraps
-            sideBetDisplay.innerText = "Total Side Bets: " + totalSideBets
-            
-        } else {
-            anyCraps = anyCraps + wager
-            totalSideBets = fieldBet + any7 + anyCraps
-            anyCrapsDisplay.innerText = "Any Craps Bet Amount is " + anyCraps
-            sideBetDisplay.innerText = "Total Side Bets: " + totalSideBets
-        }
+function wagerMoreThanRollC(wager) {
+    if (wager > bankroll - (wagerAmount + fieldBet + any7 + anyCraps)) {
+        anyCraps = anyCraps
+        totalSideBets = fieldBet + any7 + anyCraps
+        anyCrapsDisplay.innerText = "Any Craps Bet Amount is " + anyCraps
+        sideBetDisplay.innerText = "Total Side Bets: " + totalSideBets
+        
+    } else {
+        anyCraps = anyCraps + wager
+        totalSideBets = fieldBet + any7 + anyCraps
+        anyCrapsDisplay.innerText = "Any Craps Bet Amount is " + anyCraps
+        sideBetDisplay.innerText = "Total Side Bets: " + totalSideBets
     }
+}
 
-        let chip1 = document.querySelector(".anycrapsc1")
+if (true){
+    let chip1 = document.querySelector(".anycrapsc1")
         chip1.addEventListener("click", function(){
             wagerMoreThanRollC(1)
             // wagerDisplay.innerText = "Wager Amount is " + wagerAmount
@@ -547,6 +542,17 @@ anyCrapPic.addEventListener("click", function(){
             wagerMoreThanRollC(100)
             // wagerDisplay.innerText = "Wager Amount is " + wagerAmount
         })
+}
+
+let anyCrapPic = document.querySelector(".anyCraps")
+anyCrapPic.addEventListener("click", function(){
+
+
+      
+    
+    
+
+        
 
         let clearButt3 = document.createElement("button")
         clearButt3.innerText = "Clear Any Craps bet"
