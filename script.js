@@ -1,8 +1,3 @@
-// create dice rolling function
-
-// let diceRollResult1 = 0
-// let diceRollResult2 = 0
-// let totalDiceRoll = 0
 
 // create a loop with set interval that loops through my images and and makes it look like the dice is being rolled
 
@@ -14,6 +9,14 @@ let fieldBet = 0
 let any7 = 0 
 let anyCraps = 0
 let totalSideBets = 0
+let placeBetAmount = 0
+let placeBet4amount = 0
+let placeBet5amount = 0
+let placeBet6amount = 0
+let placeBet8amount = 0
+let placeBet9amount = 0
+let placeBet10amount = 0
+
 
 
 // sidebet variables
@@ -38,6 +41,7 @@ let blankDiv3 = document.querySelector(".blank-div3")
 let placeBetsMessage = document.querySelector(".placebets")
 
 
+
 function diceRoll () {
     let diceRoll  = Math.floor(Math.random() * (6  - 1 + 1) + 1)
     return diceRoll
@@ -49,6 +53,7 @@ function clearField () {
     sideBetDisplay.innerText = "Total Side Bets: " + totalSideBets
     fieldBet = 0
     blankDiv1.innerHTML = ""
+    
     
 }
 
@@ -67,6 +72,14 @@ function clearCraps () {
     anyCraps = 0
     blankDiv3.innerHTML = ""
 }
+
+function clearPlace () {
+    placeBet4amount = 0
+    placebet4amountDis.innerText = "Bet on 4: " + placeBet4amount
+    placeBetAmount = 0
+    h4.innerText = "Press a Place Bet Icon and then choose wager amount to add a place bet."
+}
+
 
 
 function  clearAll () {
@@ -88,73 +101,9 @@ function clearSide () {
     clearCraps ()
 }
 
-function placeBetMenu () {
-    placeBetsMessage.innerText = "Click on the Number Icons below to wager on a Place Bet. If Place Bet has a current wager, a chip will appear on number icon."
-    let h4 = document.createElement ("h4")
-    
-    
-    
-    let div4 = document.createElement("div")
-    div4.classList.add("placebet-icons")
-    let placeBet4 = document.createElement("img")
-    placeBet4.src = "img/place4.png"
-    div4.appendChild(placeBet4)
-    placeBetsMessage.appendChild(div4)
-
-
-
-
-    let div5 = document.createElement("div")
-    div5.classList.add("placebet-chips")
-    let placeBetChip1 = document.createElement("img")
-    placeBetChip1.src = "img/1 chip.png"
-    div5.appendChild(placeBetChip1)
-    let placeBetChip5 = document.createElement("img")
-    placeBetChip5.src = "img/5 chip.png"
-    div5.appendChild(placeBetChip5)
-    let placeBetChip10 = document.createElement("img")
-    placeBetChip10.src = "img/10 chip.png"
-    div5.appendChild(placeBetChip10)
-    let placeBetChip25 = document.createElement("img")
-    placeBetChip25.src = "img/25 chip.png"
-    div5.appendChild(placeBetChip25)
-    let placeBetChip50 = document.createElement("img")
-    placeBetChip50.src = "img/50 chip.png"
-    div5.appendChild(placeBetChip50)
-    let placeBetChip100 = document.createElement("img")
-    placeBetChip100.src = "img/100 chip.png"
-    div5.appendChild(placeBetChip100)
-    placeBetsMessage.appendChild(div5)
-}
-
-
-// function wagerMoreThanRoll(wager) {
-//     if (wager > bankroll - (wagerAmount + totalSideBets)) {
-//         wagerAmount = wagerAmount
-//         wagerDisplay.innerText = "Wager Amount is " + wagerAmount
-//     } else {
-//         wagerAmount = wagerAmount + wager
-//         wagerDisplay.innerText = "Wager Amount is " + wagerAmount
-//     }
-// }
 
 function reset () {
-    // bankroll = 250
-    // wagerAmount = 0
-    // point = 0
-    // scoreboard.innerHTML =""
-    // let h2bankRoll = document.createElement("h2")
-    // h2bankRoll.innerText = "Bankroll: $" + bankroll
-    // scoreboard.appendChild(h2bankRoll)
-    // let h2point = document.createElement("h2")
-    // h2point.innerText = "Current Point: Roll Dice to set point"
-    // scoreboard.appendChild(h2point)
-    // let h2wagerAmount = document.createElement("h2")
-    // h2wagerAmount.innerText = "Wager Amount: Select Chips to Increase Wager"
-    // scoreboard.appendChild(h2wagerAmount)
-    // let divMessages = document.createElement("div")
-    // divMessages.classList.add("messages")
-    // scoreboard.appendChild(divMessages)
+   
     location.reload()
 }
 
@@ -186,21 +135,170 @@ function wagerMoreThanRoll(wager) {
     }
 }
 
-// console.log(diceRoll())
 
-// function diceRoll2 () {
-//     let diceRoll  = Math.floor(Math.random() * (6  - 1 + 1) + 1)
-//     return diceRoll
-// }
 
-// console.log(diceRoll2())
+function placeBetMenu () {
+    
+    let h4 = document.createElement ("h4")
+    h4.innerText = "Press a Place Bet Icon and then choose wager amount to add a place bet."
+    placeBetsMessage.appendChild(h4)
+    
 
-// function rollDice () {
-//     let totalDiceRoll = diceRollResult1 + diceRollResult2
-//     return totalDiceRoll
-// }
 
-// console.log(rollDice())
+    function wagerMoreThanRollP4(wager) {
+        if (wager > bankroll - (wagerAmount + fieldBet + any7 + anyCraps + placeBet4amount + placeBet5amount + placeBet6amount + placeBet8amount + placeBet9amount + placeBet10amount)) {
+            placeBet4amount = placeBet4amount
+            placebet4amountDis.innerText = "Bet on 4: " + placeBet4amount
+
+                        
+        } else {
+            placeBet4amount = placeBet4amount + wager
+            placeBetAmount = placeBetAmount + placeBet4amount
+            placebet4amountDis.innerText = "Bet on 4: " + placeBet4amount
+            h4.innerText = "Place Bet Amount: " + placeBetAmount
+    
+        }
+    }
+    
+   
+    
+    let div4 = document.createElement("div")
+    div4.classList.add("placebet-icons")
+    
+    let placeBet4 = document.createElement("img")
+    placeBet4.src = "img/place4.png"
+    div4.appendChild(placeBet4)
+
+    
+
+    let placeBet5 = document.createElement("img")
+    placeBet5.src = "img/place5.png"
+    div4.appendChild(placeBet5)
+
+    let placeBet6 = document.createElement("img")
+    placeBet6.src = "img/place6.png"
+    div4.appendChild(placeBet6)
+
+    let placeBet8 = document.createElement("img")
+    placeBet8.src = "img/place8.png"
+    div4.appendChild(placeBet8)
+
+    let placeBet9 = document.createElement("img")
+    placeBet9.src = "img/place9.png"
+    div4.appendChild(placeBet9)
+
+    let placeBet10 = document.createElement("img")
+    placeBet10.src = "img/place10.png"
+    div4.appendChild(placeBet10)
+
+
+    placeBetsMessage.appendChild(div4)
+
+   
+
+
+let div5 = document.createElement("div")
+    div5.classList.add("placebet-ind")
+    let placebet4amountDis = document.createElement("h4")
+    placebet4amountDis.innerText = "Bet on 4: "+ placeBet4amount
+    div5.appendChild(placebet4amountDis)
+
+    let placebet5amountDis = document.createElement("h4")
+    placebet5amountDis.innerText = "Bet on 5: "+ placeBet5amount
+    div5.appendChild(placebet5amountDis)
+    
+    let placebet6amountDis = document.createElement("h4")
+    placebet6amountDis.innerText = "Bet on 6: "+ placeBet6amount
+    div5.appendChild(placebet6amountDis)
+    
+    let placebet8amountDis = document.createElement("h4")
+    placebet8amountDis.innerText = "Bet on 8: "+ placeBet8amount
+    div5.appendChild(placebet8amountDis)
+    
+    let placebet9amountDis = document.createElement("h4")
+    placebet9amountDis.innerText = "Bet on 9: "+ placeBet9amount
+    div5.appendChild(placebet9amountDis)
+    
+    let placebet10amountDis = document.createElement("h4")
+    placebet10amountDis.innerText = "Bet on 10: "+ placeBet10amount
+    div5.appendChild(placebet10amountDis)
+
+    placeBetsMessage.appendChild(div5)
+
+    let div6 = document.createElement("div")
+    div6.classList.add("placebet-chips")
+    let placeBetChip1 = document.createElement("img")
+    placeBetChip1.src = "img/1 chip.png"
+    div6.appendChild(placeBetChip1)
+    let placeBetChip5 = document.createElement("img")
+    placeBetChip5.src = "img/5 chip.png"
+    div6.appendChild(placeBetChip5)
+    let placeBetChip10 = document.createElement("img")
+    placeBetChip10.src = "img/10 chip.png"
+    div6.appendChild(placeBetChip10)
+    let placeBetChip25 = document.createElement("img")
+    placeBetChip25.src = "img/25 chip.png"
+    div6.appendChild(placeBetChip25)
+    let placeBetChip50 = document.createElement("img")
+    placeBetChip50.src = "img/50 chip.png"
+    div6.appendChild(placeBetChip50)
+    let placeBetChip100 = document.createElement("img")
+    placeBetChip100.src = "img/100 chip.png"
+    div6.appendChild(placeBetChip100)
+    placeBetsMessage.appendChild(div6)
+
+    placeBet4.addEventListener("click", function() {
+
+  
+        placeBetChip1.addEventListener("click", function(){
+            wagerMoreThanRollP4(1)
+        })
+       
+        placeBetChip5.addEventListener("click", function(){
+            wagerMoreThanRollP4(5)
+        })
+        
+        placeBetChip10.addEventListener("click", function(){
+            wagerMoreThanRollP4(10)
+        })
+
+        
+        placeBetChip25.addEventListener("click", function(){
+            wagerMoreThanRollP4(25)
+        })
+
+       
+        placeBetChip50.addEventListener("click", function(){
+            wagerMoreThanRollP4(50)
+        })
+
+        
+        placeBetChip100.addEventListener("click", function(){
+            wagerMoreThanRollP4(100)
+        })
+
+        
+  
+        let clearButtPlace4 = document.createElement("button")
+        clearButtPlace4.innerText = "Clear Place Bets"
+        let blankDivPlace = document.querySelector(".blank-place")
+        blankDivPlace.innerHTML=""
+        blankDivPlace.appendChild(clearButtPlace4)
+
+        clearButtPlace4.addEventListener("click", function(){
+            
+            placeBet4amount = 0
+    placebet4amountDis.innerText = "Bet on 4: " + placeBet4amount
+    placeBetAmount = 0
+    h4.innerText = "Press a Place Bet Icon and then choose wager amount to add a place bet."
+    console.log(placeBetAmount)
+
+
+        })
+    })
+}
+
+
 
 
 let chip1 = document.querySelector(".c1")
@@ -246,13 +344,16 @@ field.addEventListener("click", function(){
       
     
     function wagerMoreThanRollF(wager) {
+        console.log(fieldBet)
         if (wager > bankroll - (wagerAmount + fieldBet + any7 + anyCraps)) {
+            
             fieldBet = fieldBet
             totalSideBets = fieldBet + any7 + anyCraps
             fieldDisplay.innerText = "Field Bet Amount is " + fieldBet
             sideBetDisplay.innerText = "Total Side Bets: " + totalSideBets
             
         } else {
+            
             fieldBet = fieldBet + wager
             totalSideBets = fieldBet + any7 + anyCraps
             fieldDisplay.innerText = "Field Bet Amount is " + fieldBet
@@ -602,11 +703,15 @@ if (anyCraps !== 0) {
         else { 
         pointText.innerText = "Current Point: " + point + " keep shooting to see how lucky you are!"
         wagerDisplay.innerText ="Your current wager  is "+ wagerAmount+", If your feeling real lucky,  you can press your bet. Select chip to increase wager."
-        placeBetsMessage.innerText = "Click on the Number Icons below to wager on a Place Bet. If Place Bet has a current wager, a chip will appear on number icon."
+        
         placeBetMenu ()
+        
+    
+    }
 
 
-        } 
+
+        
     }  else {
         let currentRoll = diceRollResult1 + diceRollResult2
         messages.innerHTML =""
@@ -634,25 +739,7 @@ if (anyCraps !== 0) {
             }
         }
 
-        // if (fieldBet !== 0) {
-        //     let fieldBetRoll = diceRollResult1 + diceRollResult2
-        //         if (fieldBetRoll === 2 || fieldBetRoll === 12) {
-        //             bankroll = bankroll + fieldBet * 2
-        //             bankrollDisplay.innerText = "Bankroll: " + bankroll
-        //             fieldDisplay.innerText = "You won your field bet, house pays you 2:1! Click field bet icon to place another bet!"
-        //             clearField ()
-        //         } else if (fieldBetRoll === 3 || fieldBetRoll === 4 || fieldBetRoll === 9 || fieldBetRoll === 10 || fieldBetRoll === 11) {
-        //             bankroll = bankroll + fieldBet
-        //             bankrollDisplay.innerText = "Bankroll: " + bankroll
-        //             fieldDisplay.innerText = "You won your field bet, house pays you even money! Click field bet icon to place another bet!"
-        //             clearField ()
-        //         } else {
-        //             bankroll = bankroll - fieldBet
-        //             bankrollDisplay.innerText = "Bankroll: " + bankroll
-        //             fieldDisplay.innerText = "You lost your field bet. Click field bet icon to place another bet!"
-        //             clearField ()
-        //         }
-        // }
+        
     
         if (bankroll === 0) {
             
