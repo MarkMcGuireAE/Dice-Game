@@ -39,7 +39,28 @@ let blankDiv2 = document.querySelector(".blank-div2")
 let anyCrapsDisplay = document.querySelector(".anyCrap-amount")
 let blankDiv3 = document.querySelector(".blank-div3")
 let placeBetsMessage = document.querySelector(".placebets")
+let placeBetsNotes = document.querySelector(".placebetsnotes")
+
 let blankPlace = document.querySelector(".blank-place")
+
+let activeButton = null
+
+let placeBetNumber = {
+    "4" : { value: 0,
+            option: true},
+    "5" : { value: 0,
+        option: true},
+    "6" : { value: 0,
+            option: true},
+    "8" : { value: 0,
+            option: true},
+    "9" : { value: 0,
+            option: true},
+    "10" : { value: 0,
+            option: true},
+    
+
+}
 
 
 
@@ -76,14 +97,30 @@ function clearCraps () {
 }
 
 function clearPlace () {
-    placeBetNumber[4] = 0
-    placeBetNumber[5] = 0
-    placeBetNumber[6] = 0
-    placeBetNumber[8] = 0
-    placeBetNumber[9] = 0
-    placeBetNumber[0] = 0
+    placeBetNumber[4].value = 0
+    placeBetNumber[5].value = 0
+    placeBetNumber[6].value = 0
+    placeBetNumber[8].value = 0
+    placeBetNumber[9].value = 0
+    placeBetNumber[10].value = 0
     placeBetsMessage.innerHTML = ""
     blankPlace.innerHTML = ""
+}
+
+function clearWithPlace () {
+    wagerDisplay.innerText = "Wager Amount: Select Chips to Increase Wager"
+    pointText.innerText = "Point: Roll Dice to set point"
+    point = 0
+    wagerAmount = 0
+    placeBetsNotes.innerText = "Your current Place Bet is still active, you can clear place bet, but you cannot add until a new point is set!"
+    dice1.style.background =""
+    dice2.style.background =""
+    messages.innerHTML = ""
+    clearField ()
+    clear7 ()
+    clearCraps ()
+    
+
 }
 
 
@@ -91,17 +128,16 @@ function clearPlace () {
 function  clearAll () {
     wagerDisplay.innerText = "Wager Amount: Select Chips to Increase Wager"
     pointText.innerText = "Point: Roll Dice to set point"
-    placeBetsMessage.innerHTML = ""
-    blankPlace.innerHTML = ""
     point = 0
-    wagerAmount = 0
-    
+    wagerAmount = 0  
     dice1.style.background =""
     dice2.style.background =""
     messages.innerHTML = ""
     clearField ()
     clear7 ()
     clearCraps ()
+    clearPlace ()
+    
     }
 
 function clearSide () {
@@ -143,30 +179,21 @@ function wagerMoreThanRoll(wager) {
 
     }
 }
-let activeButton = null
 
-let placeBetNumber = {
-    "4" : { value: 0,
-            option: true},
-    "5" : { value: 0,
-        option: true},
-    "6" : { value: 0,
-            option: true},
-    "8" : { value: 0,
-            option: true},
-    "9" : { value: 0,
-            option: true},
-    "10" : { value: 0,
-            option: true},
-    
-
-}
 
 function placeBetMenu () {
     
-    let h4 = document.createElement ("h4")
-    h4.innerText = "Press a Place Bet Icon and then choose wager amount to add a place bet."
-    placeBetsMessage.appendChild(h4)
+   
+
+    placeBetsNotes.innerText = "Press a Place Bet Icon and then choose wager amount to add a place bet."
+    
+
+            placeBetNumber["4"].option = true
+            placeBetNumber["5"].option = true
+            placeBetNumber["6"].option = true
+            placeBetNumber["8"].option = true
+            placeBetNumber["9"].option = true
+            placeBetNumber["10"].option = true
     
 
 
@@ -436,7 +463,7 @@ let div5 = document.createElement("div")
             placebet9amountDis.innerText ="Bet on 9: " + placeBet9amount
             placebet10amountDis.innerText = "Bet on 10: " + placeBet10amount
             placeBetAmount = 0
-            h4.innerText = "Press a Place Bet Icon and then choose wager amount to add a place bet."
+            placeBetsNotes.innerText = "Press a Place Bet Icon and then choose wager amount to add a place bet."
             console.log(placeBetAmount)
 
 
@@ -469,7 +496,7 @@ let div5 = document.createElement("div")
             placebet9amountDis.innerText ="Bet on 9: " + placeBet9amount
             placebet10amountDis.innerText = "Bet on 10: " + placeBet10amount
             placeBetAmount = 0
-            h4.innerText = "Press a Place Bet Icon and then choose wager amount to add a place bet."
+            placeBetsNotes.innerText = "Press a Place Bet Icon and then choose wager amount to add a place bet."
             
 
 
@@ -501,7 +528,7 @@ let div5 = document.createElement("div")
             placebet9amountDis.innerText ="Bet on 9: " + placeBet9amount
             placebet10amountDis.innerText = "Bet on 10: " + placeBet10amount
             placeBetAmount = 0
-            h4.innerText = "Press a Place Bet Icon and then choose wager amount to add a place bet."
+            placeBetsNotes.innerText = "Press a Place Bet Icon and then choose wager amount to add a place bet."
             console.log(placeBetAmount)
 
 
@@ -534,7 +561,7 @@ let div5 = document.createElement("div")
             placebet9amountDis.innerText ="Bet on 9: " + placeBet9amount
             placebet10amountDis.innerText = "Bet on 10: " + placeBet10amount
             placeBetAmount = 0
-            h4.innerText = "Press a Place Bet Icon and then choose wager amount to add a place bet."
+            placeBetsNotes.innerText = "Press a Place Bet Icon and then choose wager amount to add a place bet."
             console.log(placeBetAmount)
 
 
@@ -566,7 +593,7 @@ let div5 = document.createElement("div")
             placebet9amountDis.innerText ="Bet on 9: " + placeBet9amount
             placebet10amountDis.innerText = "Bet on 10: " + placeBet10amount
             placeBetAmount = 0
-            h4.innerText = "Press a Place Bet Icon and then choose wager amount to add a place bet."
+            placeBetsNotes.innerText = "Press a Place Bet Icon and then choose wager amount to add a place bet."
             console.log(placeBetAmount)
 
 
@@ -598,7 +625,7 @@ let div5 = document.createElement("div")
             placebet9amountDis.innerText ="Bet on 9: " + placeBet9amount
             placebet10amountDis.innerText = "Bet on 10: " + placeBet10amount
             placeBetAmount = 0
-            h4.innerText = "Press a Place Bet Icon and then choose wager amount to add a place bet."
+            placeBetsNotes.innerText = "Press a Place Bet Icon and then choose wager amount to add a place bet."
             console.log(placeBetAmount)
 
 
@@ -978,7 +1005,7 @@ btn.addEventListener("click", function(event){
     let diceRollResult1 = diceRoll()
     let diceRollResult2 = diceRoll()
 
-  
+  console.log(placeBetNumber)
     
     
 
@@ -1120,14 +1147,17 @@ if (anyCraps !== 0) {
         if (placeBetNumber[4].value !== 0) {
             if (point === 4){
                 bankroll = bankroll + (placeBetNumber[4].value*9)/5
-                    bankrollDisplay.innerText = "Bankroll: " + bankroll
-                    placeBetsMessage.innerText = "You hit your place bet on number 4, House pays you 9:5!"
-                    setTimeout(clearPlace, 3000)
+                bankrollDisplay.innerText = "Bankroll: " + bankroll
+                placeBetsNotes.innerText = "You hit your place bet on number 4, House pays you 9:5!"
+                placeBetNumber[4].value = 0
+                setTimeout(clearPlace, 10000)
+                
             } else if (point === 7) {
                 bankroll = bankroll - placeBetNumber[4].value
-                    bankrollDisplay.innerText = "Bankroll: " + bankroll
-                    placeBetsMessage.innerText = "You lost your place bet on number 4!"
-                    setTimeout(clearPlace, 3000)
+                bankrollDisplay.innerText = "Bankroll: " + bankroll
+                placeBetsNotes.innerText = "You lost your place bet on number 4!"
+                placeBetNumber[4].value = 0
+                setTimeout(clearPlace, 10000)
             }
         }
 
@@ -1135,14 +1165,14 @@ if (anyCraps !== 0) {
             pointText.innerText = "Lucky Shooter, You Win"
             bankroll = bankroll + wagerAmount
             bankrollDisplay.innerText = "Bankroll: " + bankroll
-            setTimeout(clearAll, 3000)
+            setTimeout(clearAll, 10000)
 
             
         } else if (point === 2 || point === 3 || point === 12) {
             pointText.innerText = "Not So Lucky Shooter, You Crapped Out"
             bankroll = bankroll - wagerAmount
             bankrollDisplay.innerText = "Bankroll: " + bankroll
-            setTimeout(clearAll, 3000)
+            setTimeout(clearAll, 10000)
         }    
         else { 
         pointText.innerText = "Current Point: " + point + " keep shooting to see how lucky you are!"
@@ -1166,11 +1196,17 @@ if (anyCraps !== 0) {
                 if (currentRoll === 4){
                     bankroll = bankroll + (placeBetNumber[4].value*9)/5
                     bankrollDisplay.innerText = "Bankroll: " + bankroll
-                    placeBetsMessage.innerText = "You hit your place bet on number 4, House pays you 9:5!"
+                    placeBetsNotes.innerText = "You hit your place bet on number 4, House pays you 9:5!"
+                    placeBetsNotes.innerText = "You hit your place bet on number 4, House pays you 9:5!"
+                    placeBetNumber[4].value = 0
+                    
+                    
                 } else if (currentRoll === 7) {
                     bankroll = bankroll - placeBetNumber[4].value
                     bankrollDisplay.innerText = "Bankroll: " + bankroll
-                    placeBetsMessage.innerText = "You lost your place bet on number 4!"
+                    placeBetsNotes.innerText = "You lost your place bet on number 4!"
+                    placeBetNumber[4].value = 0
+                    setTimeout(clearPlace, 10000)
                 }
             }
 
@@ -1178,19 +1214,41 @@ if (anyCraps !== 0) {
             h2.innerText = "You hit your point... Your a real shooter kid!"
             bankroll = bankroll + wagerAmount
             bankrollDisplay.innerText = "Bankroll: " + bankroll
-            placeBetNumber["4"].option = false
-            placeBetNumber["5"].option = false
-            placeBetNumber["6"].option = false
-            placeBetNumber["8"].option = false
-            placeBetNumber["9"].option = false
-            placeBetNumber["10"].option = false
-            setTimeout(clearAll, 3000)
+                if (placeBetNumber["4"].value !== 0 ||
+                placeBetNumber["5"].value !== 0 ||
+                placeBetNumber["6"].value !== 0 ||
+                placeBetNumber["8"].value !== 0 ||
+                placeBetNumber["9"].value !== 0 ||
+                placeBetNumber["10"].value !== 0 ){
+                placeBetNumber["4"].option = false
+                placeBetNumber["5"].option = false
+                placeBetNumber["6"].option = false
+                placeBetNumber["8"].option = false
+                placeBetNumber["9"].option = false
+                placeBetNumber["10"].option = false
+                setTimeout(clearWithPlace, 10000)}
+                else {
+                    setTimeout(clearAll, 10000)
+                }
             
             } else if (currentRoll === 7) {
-            h2.innerText = "You crappeed out kid, the House always wins!!"
-            bankroll = bankroll - wagerAmount
-            bankrollDisplay.innerText = "Bankroll: " + bankroll
-            setTimeout(clearAll, 3000)
+                if (placeBetNumber["4"].value !== 0 ||
+                placeBetNumber["5"].value !== 0 ||
+                placeBetNumber["6"].value !== 0 ||
+                placeBetNumber["8"].value !== 0 ||
+                placeBetNumber["9"].value !== 0 ||
+                placeBetNumber["10"].value !== 0) {
+                    h2.innerText = "You crappeed out kid, the House always wins!!"
+                    bankroll = bankroll - wagerAmount
+                    bankroll = bankroll - placeBetNumber["4"].value
+                    bankrollDisplay.innerText = "Bankroll: " + bankroll
+                    placeBetsNotes.innerText = "You lost your place bets!"
+                    setTimeout(clearAll, 10000)
+                } else {
+                h2.innerText = "You crappeed out kid, the House always wins!!"
+                bankroll = bankroll - wagerAmount
+                bankrollDisplay.innerText = "Bankroll: " + bankroll
+                setTimeout(clearAll, 10000)}
             } else {
                 messages.innerHTML =""
                 let h2 = document.createElement('h2')
