@@ -43,24 +43,24 @@ let placeBetsNotes = document.querySelector(".placebetsnotes")
 
 let blankPlace = document.querySelector(".blank-place")
 
-let activeButton = null
+// let activeButton = null
 
-let placeBetNumber = {
-    "4" : { value: 0,
-            option: true},
-    "5" : { value: 0,
-        option: true},
-    "6" : { value: 0,
-            option: true},
-    "8" : { value: 0,
-            option: true},
-    "9" : { value: 0,
-            option: true},
-    "10" : { value: 0,
-            option: true},
+// let placeBetNumber = {
+//     "4" : { value: 0,
+//             option: true},
+//     "5" : { value: 0,
+//         option: true},
+//     "6" : { value: 0,
+//             option: true},
+//     "8" : { value: 0,
+//             option: true},
+//     "9" : { value: 0,
+//             option: true},
+//     "10" : { value: 0,
+//             option: true},
     
 
-}
+// }
 
 
 
@@ -96,32 +96,35 @@ function clearCraps () {
     blankDiv3.innerHTML = ""
 }
 
-function clearPlace () {
-    placeBetNumber[4].value = 0
-    placeBetNumber[5].value = 0
-    placeBetNumber[6].value = 0
-    placeBetNumber[8].value = 0
-    placeBetNumber[9].value = 0
-    placeBetNumber[10].value = 0
-    placeBetsMessage.innerHTML = ""
-    blankPlace.innerHTML = ""
-}
+// function clearPlace () {
+//     placeBetNumber[4].value = 0
+//     placeBetNumber[5].value = 0
+//     placeBetNumber[6].value = 0
+//     placeBetNumber[8].value = 0
+//     placeBetNumber[9].value = 0
+//     placeBetNumber[10].value = 0
+//     placeBetsMessage.innerHTML = ""
+//     blankPlace.innerHTML = ""
+// }
 
-function clearWithPlace () {
-    wagerDisplay.innerText = "Wager Amount: Select Chips to Increase Wager"
-    pointText.innerText = "Point: Roll Dice to set point"
-    point = 0
-    wagerAmount = 0
-    placeBetsNotes.innerText = "Your current Place Bet is still active, you can clear place bet, but you cannot add until a new point is set!"
-    dice1.style.background =""
-    dice2.style.background =""
-    messages.innerHTML = ""
-    clearField ()
-    clear7 ()
-    clearCraps ()
+// function clearWithPlace () {
+//     wagerDisplay.innerText = "Wager Amount: Select Chips to Increase Wager"
+//     pointText.innerText = "Point: Roll Dice to set point"
+//     point = 0
+//     wagerAmount = 0
+//     placeBetsNotes.innerHTML = ""
+//     let placeMessage = document.createElement("h2")
+//     placeMessage.innerText = "Your current Place Bet is still active, you can clear place bet, but you cannot add until a new point is set!"
+//     placeBetsNotes.appendChild(placeMessage)
+//     dice1.style.background =""
+//     dice2.style.background =""
+//     messages.innerHTML = ""
+//     clearField ()
+//     clear7 ()
+//     clearCraps ()
     
 
-}
+// }
 
 
 
@@ -136,7 +139,7 @@ function  clearAll () {
     clearField ()
     clear7 ()
     clearCraps ()
-    clearPlace ()
+    // clearPlace ()
     
     }
 
@@ -181,258 +184,263 @@ function wagerMoreThanRoll(wager) {
 }
 
 
-function placeBetMenu () {
+// function placeBetMenu () {
+
     
    
+    
+//     let placeMessage = document.createElement("h2")
+//     placeMessage.innerText = "Press a Place Bet Icon and then choose wager amount to add a place bet."
+//     placeBetsNotes.appendChild(placeMessage)
 
-    placeBetsNotes.innerText = "Press a Place Bet Icon and then choose wager amount to add a place bet."
+
     
 
-            placeBetNumber["4"].option = true
-            placeBetNumber["5"].option = true
-            placeBetNumber["6"].option = true
-            placeBetNumber["8"].option = true
-            placeBetNumber["9"].option = true
-            placeBetNumber["10"].option = true
+//             placeBetNumber["4"].option = true
+//             placeBetNumber["5"].option = true
+//             placeBetNumber["6"].option = true
+//             placeBetNumber["8"].option = true
+//             placeBetNumber["9"].option = true
+//             placeBetNumber["10"].option = true
     
 
 
-    function wagerMoreThanRollP4(wager) {
-        if (wager > bankroll - (wagerAmount + fieldBet + any7 + anyCraps + placeBet4amount + placeBet5amount + placeBet6amount + placeBet8amount + placeBet9amount + placeBet10amount)) {
-            placeBet4amount = placeBet4amount
-            placebet4amountDis.innerText = "Bet on 4: " + placeBet4amount
+//     function wagerMoreThanRollP4(wager) {
+//         if (wager > bankroll - (wagerAmount + fieldBet + any7 + anyCraps + placeBet4amount + placeBet5amount + placeBet6amount + placeBet8amount + placeBet9amount + placeBet10amount)) {
+//             placeBet4amount = placeBet4amount
+//             placebet4amountDis.innerText = "Bet on 4: " + placeBet4amount
 
                         
-        } else {
-            placeBet4amount = placeBet4amount + wager
-            placeBetAmount = placeBetAmount + placeBet4amount
-            placebet4amountDis.innerText = "Bet on 4: " + placeBet4amount
-            h4.innerText = "Place Bet Amount: " + placeBetAmount
+//         } else {
+//             placeBet4amount = placeBet4amount + wager
+//             placeBetAmount = placeBetAmount + placeBet4amount
+//             placebet4amountDis.innerText = "Bet on 4: " + placeBet4amount
+//             h4.innerText = "Place Bet Amount: " + placeBetAmount
     
-        }
-    }
+//         }
+//     }
     
    
     
-    let div4 = document.createElement("div")
-    div4.classList.add("placebet-icons")
+//     let div4 = document.createElement("div")
+//     div4.classList.add("placebet-icons")
     
-    let placeBet4 = document.createElement("img")
-    placeBet4.src = "img/place4.png"
-    div4.appendChild(placeBet4)
+//     let placeBet4 = document.createElement("img")
+//     placeBet4.src = "img/place4.png"
+//     div4.appendChild(placeBet4)
 
     
 
-    let placeBet5 = document.createElement("img")
-    placeBet5.src = "img/place5.png"
-    div4.appendChild(placeBet5)
+//     let placeBet5 = document.createElement("img")
+//     placeBet5.src = "img/place5.png"
+//     div4.appendChild(placeBet5)
 
-    let placeBet6 = document.createElement("img")
-    placeBet6.src = "img/place6.png"
-    div4.appendChild(placeBet6)
+//     let placeBet6 = document.createElement("img")
+//     placeBet6.src = "img/place6.png"
+//     div4.appendChild(placeBet6)
 
-    let placeBet8 = document.createElement("img")
-    placeBet8.src = "img/place8.png"
-    div4.appendChild(placeBet8)
+//     let placeBet8 = document.createElement("img")
+//     placeBet8.src = "img/place8.png"
+//     div4.appendChild(placeBet8)
 
-    let placeBet9 = document.createElement("img")
-    placeBet9.src = "img/place9.png"
-    div4.appendChild(placeBet9)
+//     let placeBet9 = document.createElement("img")
+//     placeBet9.src = "img/place9.png"
+//     div4.appendChild(placeBet9)
 
-    let placeBet10 = document.createElement("img")
-    placeBet10.src = "img/place10.png"
-    div4.appendChild(placeBet10)
+//     let placeBet10 = document.createElement("img")
+//     placeBet10.src = "img/place10.png"
+//     div4.appendChild(placeBet10)
 
 
-    placeBetsMessage.appendChild(div4)
+//     placeBetsMessage.appendChild(div4)
 
    
 
 
-let div5 = document.createElement("div")
-    div5.classList.add("placebet-ind")
-    let placebet4amountDis = document.createElement("h4")
-    placebet4amountDis.innerText = "Bet on 4: "+ placeBet4amount
-    div5.appendChild(placebet4amountDis)
+// let div5 = document.createElement("div")
+//     div5.classList.add("placebet-ind")
+//     let placebet4amountDis = document.createElement("h4")
+//     placebet4amountDis.innerText = "Bet on 4: "+ placeBet4amount
+//     div5.appendChild(placebet4amountDis)
 
-    let placebet5amountDis = document.createElement("h4")
-    placebet5amountDis.innerText = "Bet on 5: "+ placeBet5amount
-    div5.appendChild(placebet5amountDis)
+//     let placebet5amountDis = document.createElement("h4")
+//     placebet5amountDis.innerText = "Bet on 5: "+ placeBet5amount
+//     div5.appendChild(placebet5amountDis)
     
-    let placebet6amountDis = document.createElement("h4")
-    placebet6amountDis.innerText = "Bet on 6: "+ placeBet6amount
-    div5.appendChild(placebet6amountDis)
+//     let placebet6amountDis = document.createElement("h4")
+//     placebet6amountDis.innerText = "Bet on 6: "+ placeBet6amount
+//     div5.appendChild(placebet6amountDis)
     
-    let placebet8amountDis = document.createElement("h4")
-    placebet8amountDis.innerText = "Bet on 8: "+ placeBet8amount
-    div5.appendChild(placebet8amountDis)
+//     let placebet8amountDis = document.createElement("h4")
+//     placebet8amountDis.innerText = "Bet on 8: "+ placeBet8amount
+//     div5.appendChild(placebet8amountDis)
     
-    let placebet9amountDis = document.createElement("h4")
-    placebet9amountDis.innerText = "Bet on 9: "+ placeBet9amount
-    div5.appendChild(placebet9amountDis)
+//     let placebet9amountDis = document.createElement("h4")
+//     placebet9amountDis.innerText = "Bet on 9: "+ placeBet9amount
+//     div5.appendChild(placebet9amountDis)
     
-    let placebet10amountDis = document.createElement("h4")
-    placebet10amountDis.innerText = "Bet on 10: "+ placeBet10amount
-    div5.appendChild(placebet10amountDis)
+//     let placebet10amountDis = document.createElement("h4")
+//     placebet10amountDis.innerText = "Bet on 10: "+ placeBet10amount
+//     div5.appendChild(placebet10amountDis)
 
-    placeBetsMessage.appendChild(div5)
+//     placeBetsMessage.appendChild(div5)
 
-    let div6 = document.createElement("div")
-    div6.classList.add("placebet-chips")
-    let placeBetChip1 = document.createElement("img")
-    placeBetChip1.src = "img/1 chip.png"
-    div6.appendChild(placeBetChip1)
-    let placeBetChip5 = document.createElement("img")
-    placeBetChip5.src = "img/5 chip.png"
-    div6.appendChild(placeBetChip5)
-    let placeBetChip10 = document.createElement("img")
-    placeBetChip10.src = "img/10 chip.png"
-    div6.appendChild(placeBetChip10)
-    let placeBetChip25 = document.createElement("img")
-    placeBetChip25.src = "img/25 chip.png"
-    div6.appendChild(placeBetChip25)
-    let placeBetChip50 = document.createElement("img")
-    placeBetChip50.src = "img/50 chip.png"
-    div6.appendChild(placeBetChip50)
-    let placeBetChip100 = document.createElement("img")
-    placeBetChip100.src = "img/100 chip.png"
-    div6.appendChild(placeBetChip100)
-    placeBetsMessage.appendChild(div6)
+//     let div6 = document.createElement("div")
+//     div6.classList.add("placebet-chips")
+//     let placeBetChip1 = document.createElement("img")
+//     placeBetChip1.src = "img/1 chip.png"
+//     div6.appendChild(placeBetChip1)
+//     let placeBetChip5 = document.createElement("img")
+//     placeBetChip5.src = "img/5 chip.png"
+//     div6.appendChild(placeBetChip5)
+//     let placeBetChip10 = document.createElement("img")
+//     placeBetChip10.src = "img/10 chip.png"
+//     div6.appendChild(placeBetChip10)
+//     let placeBetChip25 = document.createElement("img")
+//     placeBetChip25.src = "img/25 chip.png"
+//     div6.appendChild(placeBetChip25)
+//     let placeBetChip50 = document.createElement("img")
+//     placeBetChip50.src = "img/50 chip.png"
+//     div6.appendChild(placeBetChip50)
+//     let placeBetChip100 = document.createElement("img")
+//     placeBetChip100.src = "img/100 chip.png"
+//     div6.appendChild(placeBetChip100)
+//     placeBetsMessage.appendChild(div6)
 
     
 
 
-    placeBetChip1.addEventListener("click", function(){
-        let bets = document.querySelector(".placebet-ind").children
-        let text = bets[activeButton].innerText
-        let property = text.split(":")[0]
-        console.log(property)
-        property = property[property.length-1]
-        if (property == "0"){
-            property = "10"
-        }
-        console.log(property)
+//     placeBetChip1.addEventListener("click", function(){
+//         let bets = document.querySelector(".placebet-ind").children
+//         let text = bets[activeButton].innerText
+//         let property = text.split(":")[0]
+//         console.log(property)
+//         property = property[property.length-1]
+//         if (property == "0"){
+//             property = "10"
+//         }
+//         console.log(property)
         
-        if(placeBetNumber[property].option){
+//         if(placeBetNumber[property].option){
 
         
-            placeBetNumber[property].value = placeBetNumber[property].value+1
-            text = `Bet on ${property}: ${placeBetNumber[property].value}`
-            console.log(placeBetNumber)
-            console.log(text)
-            bets[activeButton].innerText = text
-            }
-    })
+//             placeBetNumber[property].value = placeBetNumber[property].value+1
+//             text = `Bet on ${property}: ${placeBetNumber[property].value}`
+//             console.log(placeBetNumber)
+//             console.log(text)
+//             bets[activeButton].innerText = text
+//             }
+//     })
    
-    placeBetChip5.addEventListener("click", function(){
-        let bets = document.querySelector(".placebet-ind").children
-        let text = bets[activeButton].innerText
-        let property = text.split(":")[0]
-        property = property[property.length-1]
-        if (property == "0"){
-            property = "10"
-        }
+//     placeBetChip5.addEventListener("click", function(){
+//         let bets = document.querySelector(".placebet-ind").children
+//         let text = bets[activeButton].innerText
+//         let property = text.split(":")[0]
+//         property = property[property.length-1]
+//         if (property == "0"){
+//             property = "10"
+//         }
        
-        if(placeBetNumber[property].option){
+//         if(placeBetNumber[property].option){
 
         
-            placeBetNumber[property].value = placeBetNumber[property].value+5
-            text = `Bet on ${property}: ${placeBetNumber[property].value}`
-            console.log(placeBetNumber)
-            console.log(text)
-            bets[activeButton].innerText = text
-            }
+//             placeBetNumber[property].value = placeBetNumber[property].value+5
+//             text = `Bet on ${property}: ${placeBetNumber[property].value}`
+//             console.log(placeBetNumber)
+//             console.log(text)
+//             bets[activeButton].innerText = text
+//             }
 
-    })
+//     })
     
-    placeBetChip10.addEventListener("click", function(){
+//     placeBetChip10.addEventListener("click", function(){
         
-        let bets = document.querySelector(".placebet-ind").children
-        let text = bets[activeButton].innerText
-        let property = text.split(":")[0]
-        property = property[property.length-1]
-        if (property == "0"){
-            property = "10"
-        }
-        if(placeBetNumber[property].option){
+//         let bets = document.querySelector(".placebet-ind").children
+//         let text = bets[activeButton].innerText
+//         let property = text.split(":")[0]
+//         property = property[property.length-1]
+//         if (property == "0"){
+//             property = "10"
+//         }
+//         if(placeBetNumber[property].option){
 
         
-        placeBetNumber[property].value = placeBetNumber[property].value+10
-        text = `Bet on ${property}: ${placeBetNumber[property].value}`
-        console.log(placeBetNumber)
-        console.log(text)
-        bets[activeButton].innerText = text
-        }
-    })
+//         placeBetNumber[property].value = placeBetNumber[property].value+10
+//         text = `Bet on ${property}: ${placeBetNumber[property].value}`
+//         console.log(placeBetNumber)
+//         console.log(text)
+//         bets[activeButton].innerText = text
+//         }
+//     })
 
     
-    placeBetChip25.addEventListener("click", function(){
-        let bets = document.querySelector(".placebet-ind").children
-        let text = bets[activeButton].innerText
-        let property = text.split(":")[0]
-        property = property[property.length-1]
-        if (property == "0"){
-            property = "10"
-        }
-        if(placeBetNumber[property].option){
+//     placeBetChip25.addEventListener("click", function(){
+//         let bets = document.querySelector(".placebet-ind").children
+//         let text = bets[activeButton].innerText
+//         let property = text.split(":")[0]
+//         property = property[property.length-1]
+//         if (property == "0"){
+//             property = "10"
+//         }
+//         if(placeBetNumber[property].option){
 
         
-        placeBetNumber[property].value = placeBetNumber[property].value+25
-        text = `Bet on ${property}: ${placeBetNumber[property].value}`
-        console.log(placeBetNumber)
-        console.log(text)
-        bets[activeButton].innerText = text
-        }
-    })
+//         placeBetNumber[property].value = placeBetNumber[property].value+25
+//         text = `Bet on ${property}: ${placeBetNumber[property].value}`
+//         console.log(placeBetNumber)
+//         console.log(text)
+//         bets[activeButton].innerText = text
+//         }
+//     })
 
    
-    placeBetChip50.addEventListener("click", function(){
-        let bets = document.querySelector(".placebet-ind").children
-        let text = bets[activeButton].innerText
-        let property = text.split(":")[0]
-        property = property[property.length-1]
+//     placeBetChip50.addEventListener("click", function(){
+//         let bets = document.querySelector(".placebet-ind").children
+//         let text = bets[activeButton].innerText
+//         let property = text.split(":")[0]
+//         property = property[property.length-1]
         
-        if (property == "0"){
-            property = "10"
-        }
-        if(placeBetNumber[property].option){
+//         if (property == "0"){
+//             property = "10"
+//         }
+//         if(placeBetNumber[property].option){
 
         
-        placeBetNumber[property].value = placeBetNumber[property].value+50
-        text = `Bet on ${property}: ${placeBetNumber[property].value}`
-        console.log(placeBetNumber)
-        console.log(text)
-        bets[activeButton].innerText = text
-        }
-    })
+//         placeBetNumber[property].value = placeBetNumber[property].value+50
+//         text = `Bet on ${property}: ${placeBetNumber[property].value}`
+//         console.log(placeBetNumber)
+//         console.log(text)
+//         bets[activeButton].innerText = text
+//         }
+//     })
 
     
-    placeBetChip100.addEventListener("click", function(){
-        let bets = document.querySelector(".placebet-ind").children
-        let text = bets[activeButton].innerText
-        let property = text.split(":")[0]
-        property = property[property.length-1]
+//     placeBetChip100.addEventListener("click", function(){
+//         let bets = document.querySelector(".placebet-ind").children
+//         let text = bets[activeButton].innerText
+//         let property = text.split(":")[0]
+//         property = property[property.length-1]
         
-        if (property == "0"){
-            property = "10"
-        }
-        if(placeBetNumber[property].option){
+//         if (property == "0"){
+//             property = "10"
+//         }
+//         if(placeBetNumber[property].option){
 
         
-        placeBetNumber[property].value = placeBetNumber[property].value+100
-        text = `Bet on ${property}: ${placeBetNumber[property].value}`
-        console.log(placeBetNumber)
-        console.log(text)
-        bets[activeButton].innerText = text
-        }
-    })
+//         placeBetNumber[property].value = placeBetNumber[property].value+100
+//         text = `Bet on ${property}: ${placeBetNumber[property].value}`
+//         console.log(placeBetNumber)
+//         console.log(text)
+//         bets[activeButton].innerText = text
+//         }
+//     })
 
     
 
-    placeBet4.addEventListener("click", function(event) {
+//     placeBet4.addEventListener("click", function(event) {
 
         
-        activeButton = 0
+//         activeButton = 0
 
 
 
@@ -441,288 +449,287 @@ let div5 = document.createElement("div")
 
         
   
-        let clearButtPlace4 = document.createElement("button")
-        clearButtPlace4.innerText = "Clear Place Bets"
-        let blankDivPlace = document.querySelector(".blank-place")
-        blankDivPlace.innerHTML=""
-        blankDivPlace.appendChild(clearButtPlace4)
+//         let clearButtPlace4 = document.createElement("button")
+//         clearButtPlace4.innerText = "Clear Place Bets"
+//         let blankDivPlace = document.querySelector(".blank-place")
+//         blankDivPlace.innerHTML=""
+//         blankDivPlace.appendChild(clearButtPlace4)
 
-        clearButtPlace4.addEventListener("click", function(){
+//         clearButtPlace4.addEventListener("click", function(){
             
             
-            placeBetNumber[4] = 0
-            placeBetNumber[5] = 0
-            placeBetNumber[6] = 0
-            placeBetNumber[8] = 0
-            placeBetNumber[9] = 0
-            placeBetNumber[0] = 0
-            placebet4amountDis.innerText = "Bet on 4: " + placeBet4amount
-            placebet5amountDis.innerText = "Bet on 5: " + placeBet5amount
-            placebet6amountDis.innerText= "Bet on 6: " + placeBet6amount
-            placebet8amountDis.innerText= "Bet on 8: " + placeBet8amount
-            placebet9amountDis.innerText ="Bet on 9: " + placeBet9amount
-            placebet10amountDis.innerText = "Bet on 10: " + placeBet10amount
-            placeBetAmount = 0
-            placeBetsNotes.innerText = "Press a Place Bet Icon and then choose wager amount to add a place bet."
-            console.log(placeBetAmount)
+//             placeBetNumber[4] = 0
+//             placeBetNumber[5] = 0
+//             placeBetNumber[6] = 0
+//             placeBetNumber[8] = 0
+//             placeBetNumber[9] = 0
+//             placeBetNumber[0] = 0
+//             placebet4amountDis.innerText = "Bet on 4: " + placeBet4amount
+//             placebet5amountDis.innerText = "Bet on 5: " + placeBet5amount
+//             placebet6amountDis.innerText= "Bet on 6: " + placeBet6amount
+//             placebet8amountDis.innerText= "Bet on 8: " + placeBet8amount
+//             placebet9amountDis.innerText ="Bet on 9: " + placeBet9amount
+//             placebet10amountDis.innerText = "Bet on 10: " + placeBet10amount
+//             placeMessage.innerText = "Press a Place Bet Icon and then choose wager amount to add a place bet."
+//             console.log(placeBetAmount)
 
 
-        })
-    })
+//         })
+//     })
 
     
-    placeBet5.addEventListener("click", function(event) {
-        activeButton = 1
+//     placeBet5.addEventListener("click", function(event) {
+//         activeButton = 1
 
-        let clearButtPlace4 = document.createElement("button")
-        clearButtPlace4.innerText = "Clear Place Bets"
-        let blankDivPlace = document.querySelector(".blank-place")
-        blankDivPlace.innerHTML=""
-        blankDivPlace.appendChild(clearButtPlace4)
+//         let clearButtPlace4 = document.createElement("button")
+//         clearButtPlace4.innerText = "Clear Place Bets"
+//         let blankDivPlace = document.querySelector(".blank-place")
+//         blankDivPlace.innerHTML=""
+//         blankDivPlace.appendChild(clearButtPlace4)
 
-        clearButtPlace4.addEventListener("click", function(){
+//         clearButtPlace4.addEventListener("click", function(){
             
             
-            placeBetNumber[4] = 0
-            placeBetNumber[5] = 0
-            placeBetNumber[6] = 0
-            placeBetNumber[8] = 0
-            placeBetNumber[9] = 0
-            placeBetNumber[0] = 0
-            placebet4amountDis.innerText = "Bet on 4: " + placeBet4amount
-            placebet5amountDis.innerText = "Bet on 5: " + placeBet5amount
-            placebet6amountDis.innerText= "Bet on 6: " + placeBet6amount
-            placebet8amountDis.innerText= "Bet on 8: " + placeBet8amount
-            placebet9amountDis.innerText ="Bet on 9: " + placeBet9amount
-            placebet10amountDis.innerText = "Bet on 10: " + placeBet10amount
-            placeBetAmount = 0
-            placeBetsNotes.innerText = "Press a Place Bet Icon and then choose wager amount to add a place bet."
+//             placeBetNumber[4] = 0
+//             placeBetNumber[5] = 0
+//             placeBetNumber[6] = 0
+//             placeBetNumber[8] = 0
+//             placeBetNumber[9] = 0
+//             placeBetNumber[0] = 0
+//             placebet4amountDis.innerText = "Bet on 4: " + placeBet4amount
+//             placebet5amountDis.innerText = "Bet on 5: " + placeBet5amount
+//             placebet6amountDis.innerText= "Bet on 6: " + placeBet6amount
+//             placebet8amountDis.innerText= "Bet on 8: " + placeBet8amount
+//             placebet9amountDis.innerText ="Bet on 9: " + placeBet9amount
+//             placebet10amountDis.innerText = "Bet on 10: " + placeBet10amount
+//             placeBetAmount = 0
+//             placeMessage.innerText = "Press a Place Bet Icon and then choose wager amount to add a place bet."
             
 
 
-        })
+//         })
       
-    })
-    placeBet6.addEventListener("click", function(event) {
-        activeButton = 2
+//     })
+//     placeBet6.addEventListener("click", function(event) {
+//         activeButton = 2
 
-        let clearButtPlace4 = document.createElement("button")
-        clearButtPlace4.innerText = "Clear Place Bets"
-        let blankDivPlace = document.querySelector(".blank-place")
-        blankDivPlace.innerHTML=""
-        blankDivPlace.appendChild(clearButtPlace4)
+//         let clearButtPlace4 = document.createElement("button")
+//         clearButtPlace4.innerText = "Clear Place Bets"
+//         let blankDivPlace = document.querySelector(".blank-place")
+//         blankDivPlace.innerHTML=""
+//         blankDivPlace.appendChild(clearButtPlace4)
 
-        clearButtPlace4.addEventListener("click", function(){
+//         clearButtPlace4.addEventListener("click", function(){
             
             
-            placeBetNumber[4] = 0
-            placeBetNumber[5] = 0
-            placeBetNumber[6] = 0
-            placeBetNumber[8] = 0
-            placeBetNumber[9] = 0
-            placeBetNumber[0] = 0
-            placebet4amountDis.innerText = "Bet on 4: " + placeBet4amount
-            placebet5amountDis.innerText = "Bet on 5: " + placeBet5amount
-            placebet6amountDis.innerText= "Bet on 6: " + placeBet6amount
-            placebet8amountDis.innerText= "Bet on 8: " + placeBet8amount
-            placebet9amountDis.innerText ="Bet on 9: " + placeBet9amount
-            placebet10amountDis.innerText = "Bet on 10: " + placeBet10amount
-            placeBetAmount = 0
-            placeBetsNotes.innerText = "Press a Place Bet Icon and then choose wager amount to add a place bet."
-            console.log(placeBetAmount)
+//             placeBetNumber[4] = 0
+//             placeBetNumber[5] = 0
+//             placeBetNumber[6] = 0
+//             placeBetNumber[8] = 0
+//             placeBetNumber[9] = 0
+//             placeBetNumber[0] = 0
+//             placebet4amountDis.innerText = "Bet on 4: " + placeBet4amount
+//             placebet5amountDis.innerText = "Bet on 5: " + placeBet5amount
+//             placebet6amountDis.innerText= "Bet on 6: " + placeBet6amount
+//             placebet8amountDis.innerText= "Bet on 8: " + placeBet8amount
+//             placebet9amountDis.innerText ="Bet on 9: " + placeBet9amount
+//             placebet10amountDis.innerText = "Bet on 10: " + placeBet10amount
+//             placeBetAmount = 0
+//             placeMessage.innerText = "Press a Place Bet Icon and then choose wager amount to add a place bet."
+//             console.log(placeBetAmount)
 
 
-        })
+//         })
        
 
-    })
-    placeBet8.addEventListener("click", function(event) {
-        activeButton = 3
+//     })
+//     placeBet8.addEventListener("click", function(event) {
+//         activeButton = 3
        
-        let clearButtPlace4 = document.createElement("button")
-        clearButtPlace4.innerText = "Clear Place Bets"
-        let blankDivPlace = document.querySelector(".blank-place")
-        blankDivPlace.innerHTML=""
-        blankDivPlace.appendChild(clearButtPlace4)
+//         let clearButtPlace4 = document.createElement("button")
+//         clearButtPlace4.innerText = "Clear Place Bets"
+//         let blankDivPlace = document.querySelector(".blank-place")
+//         blankDivPlace.innerHTML=""
+//         blankDivPlace.appendChild(clearButtPlace4)
 
-        clearButtPlace4.addEventListener("click", function(){
+//         clearButtPlace4.addEventListener("click", function(){
             
             
-            placeBetNumber[4] = 0
-            placeBetNumber[5] = 0
-            placeBetNumber[6] = 0
-            placeBetNumber[8] = 0
-            placeBetNumber[9] = 0
-            placeBetNumber[0] = 0
-            placebet4amountDis.innerText = "Bet on 4: " + placeBet4amount
-            placebet5amountDis.innerText = "Bet on 5: " + placeBet5amount
-            placebet6amountDis.innerText= "Bet on 6: " + placeBet6amount
-            placebet8amountDis.innerText= "Bet on 8: " + placeBet8amount
-            placebet9amountDis.innerText ="Bet on 9: " + placeBet9amount
-            placebet10amountDis.innerText = "Bet on 10: " + placeBet10amount
-            placeBetAmount = 0
-            placeBetsNotes.innerText = "Press a Place Bet Icon and then choose wager amount to add a place bet."
-            console.log(placeBetAmount)
+//             placeBetNumber[4] = 0
+//             placeBetNumber[5] = 0
+//             placeBetNumber[6] = 0
+//             placeBetNumber[8] = 0
+//             placeBetNumber[9] = 0
+//             placeBetNumber[0] = 0
+//             placebet4amountDis.innerText = "Bet on 4: " + placeBet4amount
+//             placebet5amountDis.innerText = "Bet on 5: " + placeBet5amount
+//             placebet6amountDis.innerText= "Bet on 6: " + placeBet6amount
+//             placebet8amountDis.innerText= "Bet on 8: " + placeBet8amount
+//             placebet9amountDis.innerText ="Bet on 9: " + placeBet9amount
+//             placebet10amountDis.innerText = "Bet on 10: " + placeBet10amount
+//             placeBetAmount = 0
+//             placeMessage.innerText = "Press a Place Bet Icon and then choose wager amount to add a place bet."
+//             console.log(placeBetAmount)
 
 
-        })
+//         })
 
-    })
-    placeBet9.addEventListener("click", function(event) {
-        activeButton = 4
+//     })
+//     placeBet9.addEventListener("click", function(event) {
+//         activeButton = 4
        
-        let clearButtPlace4 = document.createElement("button")
-        clearButtPlace4.innerText = "Clear Place Bets"
-        let blankDivPlace = document.querySelector(".blank-place")
-        blankDivPlace.innerHTML=""
-        blankDivPlace.appendChild(clearButtPlace4)
+//         let clearButtPlace4 = document.createElement("button")
+//         clearButtPlace4.innerText = "Clear Place Bets"
+//         let blankDivPlace = document.querySelector(".blank-place")
+//         blankDivPlace.innerHTML=""
+//         blankDivPlace.appendChild(clearButtPlace4)
 
-        clearButtPlace4.addEventListener("click", function(){
+//         clearButtPlace4.addEventListener("click", function(){
             
             
-            placeBetNumber[4] = 0
-            placeBetNumber[5] = 0
-            placeBetNumber[6] = 0
-            placeBetNumber[8] = 0
-            placeBetNumber[9] = 0
-            placeBetNumber[0] = 0
-            placebet4amountDis.innerText = "Bet on 4: " + placeBet4amount
-            placebet5amountDis.innerText = "Bet on 5: " + placeBet5amount
-            placebet6amountDis.innerText= "Bet on 6: " + placeBet6amount
-            placebet8amountDis.innerText= "Bet on 8: " + placeBet8amount
-            placebet9amountDis.innerText ="Bet on 9: " + placeBet9amount
-            placebet10amountDis.innerText = "Bet on 10: " + placeBet10amount
-            placeBetAmount = 0
-            placeBetsNotes.innerText = "Press a Place Bet Icon and then choose wager amount to add a place bet."
-            console.log(placeBetAmount)
+//             placeBetNumber[4] = 0
+//             placeBetNumber[5] = 0
+//             placeBetNumber[6] = 0
+//             placeBetNumber[8] = 0
+//             placeBetNumber[9] = 0
+//             placeBetNumber[0] = 0
+//             placebet4amountDis.innerText = "Bet on 4: " + placeBet4amount
+//             placebet5amountDis.innerText = "Bet on 5: " + placeBet5amount
+//             placebet6amountDis.innerText= "Bet on 6: " + placeBet6amount
+//             placebet8amountDis.innerText= "Bet on 8: " + placeBet8amount
+//             placebet9amountDis.innerText ="Bet on 9: " + placeBet9amount
+//             placebet10amountDis.innerText = "Bet on 10: " + placeBet10amount
+//             placeBetAmount = 0
+//             placeMessage.innerText = "Press a Place Bet Icon and then choose wager amount to add a place bet."
+//             console.log(placeBetAmount)
 
 
-        })
+//         })
 
-    })
-    placeBet10.addEventListener("click", function(event) {
-        activeButton = 5
+//     })
+//     placeBet10.addEventListener("click", function(event) {
+//         activeButton = 5
 
-        let clearButtPlace4 = document.createElement("button")
-        clearButtPlace4.innerText = "Clear Place Bets"
-        let blankDivPlace = document.querySelector(".blank-place")
-        blankDivPlace.innerHTML=""
-        blankDivPlace.appendChild(clearButtPlace4)
+//         let clearButtPlace4 = document.createElement("button")
+//         clearButtPlace4.innerText = "Clear Place Bets"
+//         let blankDivPlace = document.querySelector(".blank-place")
+//         blankDivPlace.innerHTML=""
+//         blankDivPlace.appendChild(clearButtPlace4)
 
-        clearButtPlace4.addEventListener("click", function(){
+//         clearButtPlace4.addEventListener("click", function(){
             
             
-            placeBetNumber[4] = 0
-            placeBetNumber[5] = 0
-            placeBetNumber[6] = 0
-            placeBetNumber[8] = 0
-            placeBetNumber[9] = 0
-            placeBetNumber[0] = 0
-            placebet4amountDis.innerText = "Bet on 4: " + placeBet4amount
-            placebet5amountDis.innerText = "Bet on 5: " + placeBet5amount
-            placebet6amountDis.innerText= "Bet on 6: " + placeBet6amount
-            placebet8amountDis.innerText= "Bet on 8: " + placeBet8amount
-            placebet9amountDis.innerText ="Bet on 9: " + placeBet9amount
-            placebet10amountDis.innerText = "Bet on 10: " + placeBet10amount
-            placeBetAmount = 0
-            placeBetsNotes.innerText = "Press a Place Bet Icon and then choose wager amount to add a place bet."
-            console.log(placeBetAmount)
+//             placeBetNumber[4] = 0
+//             placeBetNumber[5] = 0
+//             placeBetNumber[6] = 0
+//             placeBetNumber[8] = 0
+//             placeBetNumber[9] = 0
+//             placeBetNumber[0] = 0
+//             placebet4amountDis.innerText = "Bet on 4: " + placeBet4amount
+//             placebet5amountDis.innerText = "Bet on 5: " + placeBet5amount
+//             placebet6amountDis.innerText= "Bet on 6: " + placeBet6amount
+//             placebet8amountDis.innerText= "Bet on 8: " + placeBet8amount
+//             placebet9amountDis.innerText ="Bet on 9: " + placeBet9amount
+//             placebet10amountDis.innerText = "Bet on 10: " + placeBet10amount
+//             placeBetAmount = 0
+//             placeMessage.innerText = "Press a Place Bet Icon and then choose wager amount to add a place bet."
+//             console.log(placeBetAmount)
 
 
-        })
+//         })
         
 
-    })
+//     })
    
 
-}
+// }
 
-function noPlace () {
-    placeBetChip1.removeEventListener("click", function(){
-        let bets = document.querySelector(".placebet-ind").children
-        let text = bets[activeButton].innerText
-        let property = text.split(":")[0]
-        console.log(property)
-        property = property[property.length-1]
-        console.log(property)
+// function noPlace () {
+//     placeBetChip1.removeEventListener("click", function(){
+//         let bets = document.querySelector(".placebet-ind").children
+//         let text = bets[activeButton].innerText
+//         let property = text.split(":")[0]
+//         console.log(property)
+//         property = property[property.length-1]
+//         console.log(property)
         
-        placeBetNumber[property] = placeBetNumber[property]+1
-        text = `Bet on ${property}: ${placeBetNumber[property]}`
-        console.log(property)
-        console.log(placeBetNumber)
-        console.log(text)
-        bets[activeButton].innerText = text
-    })
+//         placeBetNumber[property] = placeBetNumber[property]+1
+//         text = `Bet on ${property}: ${placeBetNumber[property]}`
+//         console.log(property)
+//         console.log(placeBetNumber)
+//         console.log(text)
+//         bets[activeButton].innerText = text
+//     })
    
-    placeBetChip5.removeEventListener("click", function(){
-        let bets = document.querySelector(".placebet-ind").children
-        let text = bets[activeButton].innerText
-        let property = text.split(":")[0]
-        property = property[property.length-1]
+//     placeBetChip5.removeEventListener("click", function(){
+//         let bets = document.querySelector(".placebet-ind").children
+//         let text = bets[activeButton].innerText
+//         let property = text.split(":")[0]
+//         property = property[property.length-1]
        
-        placeBetNumber[property] = placeBetNumber[property]+5
-        text = `Bet on ${property}: ${placeBetNumber[property]}`
-        console.log(placeBetNumber)
-        console.log(text)
-        bets[activeButton].innerText = text
+//         placeBetNumber[property] = placeBetNumber[property]+5
+//         text = `Bet on ${property}: ${placeBetNumber[property]}`
+//         console.log(placeBetNumber)
+//         console.log(text)
+//         bets[activeButton].innerText = text
 
-    })
+//     })
     
-    placeBetChip10.removeEventListener("click", function(){
-        let bets = document.querySelector(".placebet-ind").children
-        let text = bets[activeButton].innerText
-        let property = text.split(":")[0]
-        property = property[property.length-1]
+//     placeBetChip10.removeEventListener("click", function(){
+//         let bets = document.querySelector(".placebet-ind").children
+//         let text = bets[activeButton].innerText
+//         let property = text.split(":")[0]
+//         property = property[property.length-1]
         
-        placeBetNumber[property] = placeBetNumber[property]+10
-        text = `Bet on ${property}: ${placeBetNumber[property]}`
-        console.log(placeBetNumber)
-        console.log(text)
-        bets[activeButton].innerText = text
-    })
+//         placeBetNumber[property] = placeBetNumber[property]+10
+//         text = `Bet on ${property}: ${placeBetNumber[property]}`
+//         console.log(placeBetNumber)
+//         console.log(text)
+//         bets[activeButton].innerText = text
+//     })
 
     
-    placeBetChip25.removeEventListener("click", function(){
-        let bets = document.querySelector(".placebet-ind").children
-        let text = bets[activeButton].innerText
-        let property = text.split(":")[0]
-        property = property[property.length-1]
+//     placeBetChip25.removeEventListener("click", function(){
+//         let bets = document.querySelector(".placebet-ind").children
+//         let text = bets[activeButton].innerText
+//         let property = text.split(":")[0]
+//         property = property[property.length-1]
         
-        placeBetNumber[property] = placeBetNumber[property]+25
-        text = `Bet on ${property}: ${placeBetNumber[property]}`
-        console.log(placeBetNumber)
-        console.log(text)
-        bets[activeButton].innerText = text
-    })
+//         placeBetNumber[property] = placeBetNumber[property]+25
+//         text = `Bet on ${property}: ${placeBetNumber[property]}`
+//         console.log(placeBetNumber)
+//         console.log(text)
+//         bets[activeButton].innerText = text
+//     })
 
    
-    placeBetChip50.removeEventListener("click", function(){
-        let bets = document.querySelector(".placebet-ind").children
-        let text = bets[activeButton].innerText
-        let property = text.split(":")[0]
-        property = property[property.length-1]
+//     placeBetChip50.removeEventListener("click", function(){
+//         let bets = document.querySelector(".placebet-ind").children
+//         let text = bets[activeButton].innerText
+//         let property = text.split(":")[0]
+//         property = property[property.length-1]
         
-        placeBetNumber[property] = placeBetNumber[property]+50
-        text = `Bet on ${property}: ${placeBetNumber[property]}`
-        console.log(placeBetNumber)
-        console.log(text)
-        bets[activeButton].innerText = text
-    })
+//         placeBetNumber[property] = placeBetNumber[property]+50
+//         text = `Bet on ${property}: ${placeBetNumber[property]}`
+//         console.log(placeBetNumber)
+//         console.log(text)
+//         bets[activeButton].innerText = text
+//     })
 
     
-    placeBetChip100.removeEventListener("click", function(){
-        let bets = document.querySelector(".placebet-ind").children
-        let text = bets[activeButton].innerText
-        let property = text.split(":")[0]
-        property = property[property.length-1]
+//     placeBetChip100.removeEventListener("click", function(){
+//         let bets = document.querySelector(".placebet-ind").children
+//         let text = bets[activeButton].innerText
+//         let property = text.split(":")[0]
+//         property = property[property.length-1]
         
-        placeBetNumber[property] = placeBetNumber[property]+100
-        text = `Bet on ${property}: ${placeBetNumber[property]}`
-        console.log(placeBetNumber)
-        console.log(text)
-        bets[activeButton].innerText = text
-    })
-}
+//         placeBetNumber[property] = placeBetNumber[property]+100
+//         text = `Bet on ${property}: ${placeBetNumber[property]}`
+//         console.log(placeBetNumber)
+//         console.log(text)
+//         bets[activeButton].innerText = text
+//     })
+// }
 
 
 
@@ -1005,7 +1012,7 @@ btn.addEventListener("click", function(event){
     let diceRollResult1 = diceRoll()
     let diceRollResult2 = diceRoll()
 
-  console.log(placeBetNumber)
+//   console.log(placeBetNumber)
     
     
 
@@ -1144,41 +1151,50 @@ if (anyCraps !== 0) {
     if (point === 0) {
         point = diceRollResult1  + diceRollResult2
 
-        if (placeBetNumber[4].value !== 0) {
-            if (point === 4){
-                bankroll = bankroll + (placeBetNumber[4].value*9)/5
-                bankrollDisplay.innerText = "Bankroll: " + bankroll
-                placeBetsNotes.innerText = "You hit your place bet on number 4, House pays you 9:5!"
-                placeBetNumber[4].value = 0
-                setTimeout(clearPlace, 10000)
+        // if (placeBetNumber[4].value !== 0) {
+        //     if (point === 4){
+        //         bankroll = bankroll + (placeBetNumber[4].value*9)/5
+        //         bankrollDisplay.innerText = "Bankroll: " + bankroll
+        //         // placeBetsNotes.innerText = "You hit your place bet on number 4, House pays you 9:5!"
+        //         placeBetsNotes.innerHTML = ""
+        //         let placeMessage = document.createElement("h2")
+        //         placeMessage.innerText = "You hit your place bet on number 4, House pays you 9:5!"
+        //         placeBetsNotes.appendChild(placeMessage)
+        //         placeBetNumber[4].value = 0
+        //         setTimeout(clearPlace, 10000)
                 
-            } else if (point === 7) {
-                bankroll = bankroll - placeBetNumber[4].value
-                bankrollDisplay.innerText = "Bankroll: " + bankroll
-                placeBetsNotes.innerText = "You lost your place bet on number 4!"
-                placeBetNumber[4].value = 0
-                setTimeout(clearPlace, 10000)
-            }
-        }
+        //     } else if (point === 7) {
+        //         bankroll = bankroll - placeBetNumber[4].value
+        //         bankrollDisplay.innerText = "Bankroll: " + bankroll
+        //         placeBetsNotes.innerHTML = ""
+        //         let placeMessage = document.createElement("h2")
+        //         placeMessage.innerText = "You lost your place bet on number 4!"
+        //         placeBetsNotes.appendChild(placeMessage)
+        //         placeBetNumber[4].value = 0
+        //         setTimeout(clearPlace, 10000)
+        //     }
+        // }
 
         if (point === 7 || point === 11) {
             pointText.innerText = "Lucky Shooter, You Win"
             bankroll = bankroll + wagerAmount
             bankrollDisplay.innerText = "Bankroll: " + bankroll
-            setTimeout(clearAll, 10000)
+            setTimeout(clearAll, 4000)
 
             
         } else if (point === 2 || point === 3 || point === 12) {
             pointText.innerText = "Not So Lucky Shooter, You Crapped Out"
             bankroll = bankroll - wagerAmount
             bankrollDisplay.innerText = "Bankroll: " + bankroll
-            setTimeout(clearAll, 10000)
+            setTimeout(clearAll, 4000)
         }    
         else { 
         pointText.innerText = "Current Point: " + point + " keep shooting to see how lucky you are!"
         wagerDisplay.innerText ="Your current wager  is "+ wagerAmount+", If your feeling real lucky,  you can press your bet. Select chip to increase wager."
         
-        placeBetMenu ()
+        
+        
+        // placeBetMenu ()
         
     
     }
@@ -1192,64 +1208,72 @@ if (anyCraps !== 0) {
         let h2 = document.createElement('h2')
         messages.appendChild(h2)
 
-            if (placeBetNumber[4].value !== 0) {
-                if (currentRoll === 4){
-                    bankroll = bankroll + (placeBetNumber[4].value*9)/5
-                    bankrollDisplay.innerText = "Bankroll: " + bankroll
-                    placeBetsNotes.innerText = "You hit your place bet on number 4, House pays you 9:5!"
-                    placeBetsNotes.innerText = "You hit your place bet on number 4, House pays you 9:5!"
-                    placeBetNumber[4].value = 0
+            // if (placeBetNumber[4].value !== 0) {
+            //     if (currentRoll === 4){
+            //         bankroll = bankroll + (placeBetNumber[4].value*9)/5
+            //         bankrollDisplay.innerText = "Bankroll: " + bankroll
+            //         placeBetsNotes.innerHTML = ""
+            //         let placeMessage = document.createElement("h2")
+            //         placeMessage.innerText = "You hit your place bet on number 4, House pays you 9:5!"
+            //         placeBetsNotes.appendChild(placeMessage)
+            //         placeBetNumber[4].value = 0
                     
                     
-                } else if (currentRoll === 7) {
-                    bankroll = bankroll - placeBetNumber[4].value
-                    bankrollDisplay.innerText = "Bankroll: " + bankroll
-                    placeBetsNotes.innerText = "You lost your place bet on number 4!"
-                    placeBetNumber[4].value = 0
-                    setTimeout(clearPlace, 10000)
-                }
-            }
+            //     } else if (currentRoll === 7) {
+            //         bankroll = bankroll - placeBetNumber[4].value
+            //         bankrollDisplay.innerText = "Bankroll: " + bankroll
+            //         placeBetsNotes.innerHTML = ""
+            //         let placeMessage = document.createElement("h2")
+            //         placeMessage.innerText = "You lost your place bet on number 4!"
+            //         placeBetsNotes.appendChild(placeMessage)
+            //         placeBetNumber[4].value = 0
+            //         setTimeout(clearPlace, 10000)
+            //     }
+            // }
 
             if (currentRoll === point)  {
             h2.innerText = "You hit your point... Your a real shooter kid!"
             bankroll = bankroll + wagerAmount
             bankrollDisplay.innerText = "Bankroll: " + bankroll
-                if (placeBetNumber["4"].value !== 0 ||
-                placeBetNumber["5"].value !== 0 ||
-                placeBetNumber["6"].value !== 0 ||
-                placeBetNumber["8"].value !== 0 ||
-                placeBetNumber["9"].value !== 0 ||
-                placeBetNumber["10"].value !== 0 ){
-                placeBetNumber["4"].option = false
-                placeBetNumber["5"].option = false
-                placeBetNumber["6"].option = false
-                placeBetNumber["8"].option = false
-                placeBetNumber["9"].option = false
-                placeBetNumber["10"].option = false
-                setTimeout(clearWithPlace, 10000)}
-                else {
-                    setTimeout(clearAll, 10000)
-                }
+                // if (placeBetNumber["4"].value !== 0 ||
+                // placeBetNumber["5"].value !== 0 ||
+                // placeBetNumber["6"].value !== 0 ||
+                // placeBetNumber["8"].value !== 0 ||
+                // placeBetNumber["9"].value !== 0 ||
+                // placeBetNumber["10"].value !== 0 ){
+                // placeBetNumber["4"].option = false
+                // placeBetNumber["5"].option = false
+                // placeBetNumber["6"].option = false
+                // placeBetNumber["8"].option = false
+                // placeBetNumber["9"].option = false
+                // placeBetNumber["10"].option = false
+                // setTimeout(clearWithPlace, 10000)}
+                // else {
+                //     setTimeout(clearAll, 10000)
+                // }
             
             } else if (currentRoll === 7) {
-                if (placeBetNumber["4"].value !== 0 ||
-                placeBetNumber["5"].value !== 0 ||
-                placeBetNumber["6"].value !== 0 ||
-                placeBetNumber["8"].value !== 0 ||
-                placeBetNumber["9"].value !== 0 ||
-                placeBetNumber["10"].value !== 0) {
+                // if (placeBetNumber["4"].value !== 0 ||
+                // placeBetNumber["5"].value !== 0 ||
+                // placeBetNumber["6"].value !== 0 ||
+                // placeBetNumber["8"].value !== 0 ||
+                // placeBetNumber["9"].value !== 0 ||
+                // placeBetNumber["10"].value !== 0) {
                     h2.innerText = "You crappeed out kid, the House always wins!!"
                     bankroll = bankroll - wagerAmount
-                    bankroll = bankroll - placeBetNumber["4"].value
-                    bankrollDisplay.innerText = "Bankroll: " + bankroll
-                    placeBetsNotes.innerText = "You lost your place bets!"
-                    setTimeout(clearAll, 10000)
-                } else {
+                                        bankrollDisplay.innerText = "Bankroll: " + bankroll
+                    wagerDisplay.innerHTML = ""
+                    // placeBetsNotes.innerHTML = ""
+                    // let placeMessage = document.createElement("h2")
+                    // placeMessage.innerText = "You lost your place bet on number 4!"
+                    // placeBetsNotes.appendChild(placeMessage)
+                    setTimeout(clearAll, 4000)
+                
                 h2.innerText = "You crappeed out kid, the House always wins!!"
                 bankroll = bankroll - wagerAmount
                 bankrollDisplay.innerText = "Bankroll: " + bankroll
-                setTimeout(clearAll, 10000)}
-            } else {
+                setTimeout(clearAll, 4000)}
+             else {
                 messages.innerHTML =""
                 let h2 = document.createElement('h2')
                 messages.appendChild(h2)
@@ -1264,7 +1288,7 @@ if (anyCraps !== 0) {
     
         if (bankroll === 0) {
             
-            setTimeout(gameOver, 2000)  
+            setTimeout(gameOver, 4000)  
               
         }
 
