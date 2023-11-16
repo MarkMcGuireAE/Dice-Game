@@ -1081,24 +1081,24 @@ btn.addEventListener("click", function(event){
             bankroll = bankroll + fieldBet * 2
             bankrollDisplay.innerText = "Bankroll: " + bankroll
             fieldDisplay.innerText = "You won your field bet, house pays you 2:1! Click field bet icon to place another bet!"
-            setTimeout(clearField, 3000)
-            setTimeout(clearSide, 3100)
+            setTimeout(clearField, 4000)
+            setTimeout(clearSide, 4100)
             
             
         } else if (fieldBetRoll === 3 || fieldBetRoll === 4 || fieldBetRoll === 9 || fieldBetRoll === 10 || fieldBetRoll === 11) {
             bankroll = bankroll + fieldBet
             bankrollDisplay.innerText = "Bankroll: " + bankroll
             fieldDisplay.innerText = "You won your field bet, house pays you even money! Click field bet icon to place another bet!"
-            setTimeout(clearField, 3000)
-            setTimeout(clearSide, 3100)
+            setTimeout(clearField, 4000)
+            setTimeout(clearSide, 4100)
            
 
         } else {
             bankroll = bankroll - fieldBet
             bankrollDisplay.innerText = "Bankroll: " + bankroll
             fieldDisplay.innerText = "You lost your field bet. Click field bet icon to place another bet!"
-            setTimeout(clearField, 3000)
-            setTimeout(clearSide, 3100)
+            setTimeout(clearField, 4000)
+            setTimeout(clearSide, 4100)
            
         }
 }
@@ -1109,14 +1109,14 @@ if (any7 !== 0) {
         bankroll = bankroll + any7 * 5
         bankrollDisplay.innerText = "Bankroll: " + bankroll
         any7Display.innerText = "You won your Any 7 bet, house pays you 5:1! Click Any 7 bet icon to place another bet!"
-        setTimeout(clear7, 3000)
-        setTimeout(clearSide, 3100)
+        setTimeout(clear7, 4000)
+        setTimeout(clearSide, 4100)
     } else {
         bankroll = bankroll - any7
         bankrollDisplay.innerText = "Bankroll: " + bankroll
         any7Display.innerText = "You lost your Any 7 bet. Click Any 7 bet icon to place another bet!"
-        setTimeout(clear7, 3000)
-        setTimeout(clearSide, 3100)
+        setTimeout(clear7, 4000)
+        setTimeout(clearSide, 4100)
     }
 }
 
@@ -1126,14 +1126,14 @@ if (anyCraps !== 0) {
         bankroll = bankroll + anyCraps * 8
         bankrollDisplay.innerText = "Bankroll: " + bankroll
         anyCrapsDisplay.innerText = "You won your Any Craps bet, house pays you 8:1! Click Any Craps bet icon to place another bet!"
-        setTimeout(clearCraps, 3000)
-        setTimeout(clearSide, 3100)
+        setTimeout(clearCraps, 4000)
+        setTimeout(clearSide, 4100)
     } else {
         bankroll = bankroll - any7
         bankrollDisplay.innerText = "Bankroll: " + bankroll
         anyCrapsDisplay.innerText = "You lost your Any Craps bet. Click Any Craps icon to place another bet!"
-        setTimeout(clearCraps, 3000)
-        setTimeout(clearSide, 3100)
+        setTimeout(clearCraps, 4000)
+        setTimeout(clearSide, 4100)
     }
 }
 
