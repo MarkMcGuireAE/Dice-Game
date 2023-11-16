@@ -39,6 +39,7 @@ let blankDiv2 = document.querySelector(".blank-div2")
 let anyCrapsDisplay = document.querySelector(".anyCrap-amount")
 let blankDiv3 = document.querySelector(".blank-div3")
 let placeBetsMessage = document.querySelector(".placebets")
+let blankPlace = document.querySelector(".blank-place")
 
 
 
@@ -75,19 +76,26 @@ function clearCraps () {
 }
 
 function clearPlace () {
-    placeBet4amount = 0
-    placebet4amountDis.innerText = "Bet on 4: " + placeBet4amount
-    placeBetAmount = 0
-    h4.innerText = "Press a Place Bet Icon and then choose wager amount to add a place bet."
+    placeBetNumber[4] = 0
+    placeBetNumber[5] = 0
+    placeBetNumber[6] = 0
+    placeBetNumber[8] = 0
+    placeBetNumber[9] = 0
+    placeBetNumber[0] = 0
+    placeBetsMessage.innerHTML = ""
+    blankPlace.innerHTML = ""
 }
 
 
 
 function  clearAll () {
-    wagerAmount = 0
     wagerDisplay.innerText = "Wager Amount: Select Chips to Increase Wager"
-    point = 0
     pointText.innerText = "Point: Roll Dice to set point"
+    placeBetsMessage.innerHTML = ""
+    blankPlace.innerHTML = ""
+    point = 0
+    wagerAmount = 0
+    
     dice1.style.background =""
     dice2.style.background =""
     messages.innerHTML = ""
@@ -1114,10 +1122,12 @@ if (anyCraps !== 0) {
                 bankroll = bankroll + (placeBetNumber[4].value*9)/5
                     bankrollDisplay.innerText = "Bankroll: " + bankroll
                     placeBetsMessage.innerText = "You hit your place bet on number 4, House pays you 9:5!"
+                    setTimeout(clearPlace, 3000)
             } else if (point === 7) {
                 bankroll = bankroll - placeBetNumber[4].value
                     bankrollDisplay.innerText = "Bankroll: " + bankroll
                     placeBetsMessage.innerText = "You lost your place bet on number 4!"
+                    setTimeout(clearPlace, 3000)
             }
         }
 
@@ -1173,7 +1183,7 @@ if (anyCraps !== 0) {
             placeBetNumber["6"].option = false
             placeBetNumber["8"].option = false
             placeBetNumber["9"].option = false
-            placeBetNumber["0"].option = false
+            placeBetNumber["10"].option = false
             setTimeout(clearAll, 3000)
             
             } else if (currentRoll === 7) {
