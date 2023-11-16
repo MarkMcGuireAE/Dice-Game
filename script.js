@@ -1187,16 +1187,16 @@ if (anyCraps !== 0) {
         // }
 
         if (point === 7 || point === 11) {
-            pointText.innerText = "Lucky Shooter, You Win"
-            pointText.style.color = "red"
+            messages.innerText = "Lucky Shooter, You Win"
+            messages.style.color = "red"
             bankroll = bankroll + wagerAmount
             bankrollDisplay.innerText = "Bankroll: " + bankroll
             setTimeout(clearAll, 4000)
 
             
         } else if (point === 2 || point === 3 || point === 12) {
-            pointText.innerText = "Not So Lucky Shooter, You Crapped Out"
-            pointText.style.color = "red"
+            messages.innerText = "Not So Lucky Shooter, You Crapped Out"
+            messages.style.color = "red"
             bankroll = bankroll - wagerAmount
             bankrollDisplay.innerText = "Bankroll: " + bankroll
             setTimeout(clearAll, 4000)
@@ -1205,6 +1205,7 @@ if (anyCraps !== 0) {
         pointText.innerText = "Current Point: " + point + " keep shooting to see how lucky you are!"
         pointText.style.color = "yellow"
         wagerDisplay.innerText ="Your current wager  is "+ wagerAmount+", If your feeling real lucky,  you can press your bet. Select chip to increase wager."
+        messages.innerText = ""
         
         
         
@@ -1218,9 +1219,9 @@ if (anyCraps !== 0) {
         
     }  else {
         let currentRoll = diceRollResult1 + diceRollResult2
-        messages.innerHTML =""
-        let h2 = document.createElement('h2')
-        messages.appendChild(h2)
+        // messages.innerHTML =""
+        // let h2 = document.createElement('h2')
+        // messages.appendChild(h2)
 
             // if (placeBetNumber[4].value !== 0) {
             //     if (currentRoll === 4){
@@ -1246,10 +1247,11 @@ if (anyCraps !== 0) {
             // }
 
             if (currentRoll === point)  {
-            h2.innerText = "You hit your point... Your a real shooter kid!"
-            h2.style.color = "red"
+            messages.innerText = "You hit your point... Your a real shooter kid!"
+            messages.style.color = "red"
             bankroll = bankroll + wagerAmount
             bankrollDisplay.innerText = "Bankroll: " + bankroll
+            setTimeout(clearAll, 4000)
                 // if (placeBetNumber["4"].value !== 0 ||
                 // placeBetNumber["5"].value !== 0 ||
                 // placeBetNumber["6"].value !== 0 ||
@@ -1264,7 +1266,7 @@ if (anyCraps !== 0) {
                 // placeBetNumber["10"].option = false
                 // setTimeout(clearWithPlace, 10000)}
                 // else {
-                    setTimeout(clearAll, 4000)
+                
                 // }
             
             } else if (currentRoll === 7) {
@@ -1274,8 +1276,8 @@ if (anyCraps !== 0) {
                 // placeBetNumber["8"].value !== 0 ||
                 // placeBetNumber["9"].value !== 0 ||
                 // placeBetNumber["10"].value !== 0) {
-                    h2.innerText = "You crappeed out kid, the House always wins!!"
-                    h2.style.color = "red"
+                    messages.innerText = "You crappeed out kid, the House always wins!!"
+                    messages.style.color = "red"
                     bankroll = bankroll - wagerAmount
                     bankrollDisplay.innerText = "Bankroll: " + bankroll
                     wagerDisplay.innerHTML = ""
@@ -1287,12 +1289,11 @@ if (anyCraps !== 0) {
                 
                }
              else {
-                messages.innerHTML =""
-                let h2 = document.createElement('h2')
-                messages.appendChild(h2)
+                
+                
                 wagerDisplay.innerText = wagerDisplay.innerText ="Your current wager  is "+ wagerAmount+", If your feeling real lucky,  you can press your bet. Select chip to increase wager."
-                h2.innerText = "Keep shooting kid!"
-                h2.style.color = "red"
+                messages.innerText = "Keep shooting kid!"
+                messages.style.color = "red"
             
             
             }
