@@ -135,11 +135,12 @@ function  clearAll () {
     wagerDisplay.innerText = "Wager Amount: Select Chips to Increase Wager"
     pointText.innerText = "Point: Roll Dice to set point"
     pointText.style.color = "black"
+    messages.innerText = "Action Messages will display here!"
     point = 0
     wagerAmount = 0  
     dice1.style.background =""
     dice2.style.background =""
-    messages.innerHTML = ""
+    
     clearField ()
     clear7 ()
     clearCraps ()
@@ -163,14 +164,40 @@ function gameOver () {
     clearAll ()
     scoreboard.innerHTML =""
     let h1 = document.createElement('h1')
-    h1.innerText  =  "Unfortunately, the House broke your bankroll, press reset to play again."
+    h1.innerHTML  =  "<h2>Unfortunately, the House broke your bankroll!</h2><h2>Click on the Bookie to borrow money and get back in the game!</h2>"
     scoreboard.appendChild(h1)
-    let resetButton = document.createElement('button')
-    resetButton.innerHTML = "reset"
+    let resetButton = document.createElement('img')
+    resetButton.src = "img/bookie.png"
+    resetButton.classList.add("reset-image")
     scoreboard.appendChild(resetButton)
     resetButton.addEventListener("click", function(){
         reset () })
 
+
+}
+
+function wonGame () {
+    clearAll ()
+    scoreboard.innerHTML =""
+    let h1 = document.createElement('h1')
+    h1.innerHTML  =  "<h2>Congratulations, your swimming in the dough!</h2><h2>You broke the House. Click the Casino Icon to play again!</h2>"
+    scoreboard.appendChild(h1)
+    let casino = document.createElement("img")
+    casino.src = "img/casino.png"
+    casino.classList.add("casino")
+    scoreboard.appendChild(casino)
+    casino.addEventListener("click", function(){
+        reset () })
+
+    let wonGameButton = document.createElement('video')
+    wonGameButton.src = "img/scrooge.mp4"
+    wonGameButton.classList.add("won-video")
+    scoreboard.appendChild(wonGameButton)
+    wonGameButton.autoplay = true
+    wonGameButton.controls = true;
+    wonGameButton.muted = false;
+    wonGameButton.height = 340; // in px
+    wonGameButton.width = 420; // in px
 
 }
 
@@ -1083,29 +1110,29 @@ btn.addEventListener("click", function(event){
         let fieldBetRoll = diceRollResult1 + diceRollResult2
         if (fieldBetRoll === 2 || fieldBetRoll === 12) {
             bankroll = bankroll + fieldBet * 2
-            bankrollDisplay.innerText = "Bankroll: " + bankroll
+            bankrollDisplay.innerText = "Bankroll: $" + bankroll
             fieldDisplay.innerText = "You won your field bet, house pays you 2:1!"
-            fieldDisplay.style.color = "yellow"
-            setTimeout(clearField, 4000)
-            setTimeout(clearSide, 4100)
+            fieldDisplay.style.color = "F2E307"
+            setTimeout(clearField, 3000)
+            setTimeout(clearSide, 3100)
             
             
         } else if (fieldBetRoll === 3 || fieldBetRoll === 4 || fieldBetRoll === 9 || fieldBetRoll === 10 || fieldBetRoll === 11) {
             bankroll = bankroll + fieldBet
-            bankrollDisplay.innerText = "Bankroll: " + bankroll
+            bankrollDisplay.innerText = "Bankroll: $" + bankroll
             fieldDisplay.innerText = "You won your field bet, house pays you even money!"
-            fieldDisplay.style.color = "yellow"
-            setTimeout(clearField, 4000)
-            setTimeout(clearSide, 4100)
+            fieldDisplay.style.color = "#F2E307"
+            setTimeout(clearField, 3000)
+            setTimeout(clearSide, 3100)
            
 
         } else {
             bankroll = bankroll - fieldBet
-            bankrollDisplay.innerText = "Bankroll: " + bankroll
+            bankrollDisplay.innerText = "Bankroll: $" + bankroll
             fieldDisplay.innerText = "You lost your field bet!"
-            fieldDisplay.style.color = "yellow"
-            setTimeout(clearField, 4000)
-            setTimeout(clearSide, 4100)
+            fieldDisplay.style.color = "#F2E307"
+            setTimeout(clearField, 3000)
+            setTimeout(clearSide, 3100)
            
         }
 }
@@ -1114,18 +1141,18 @@ if (any7 !== 0) {
     let any7Roll = diceRollResult1 + diceRollResult2
     if (any7Roll === 7 ) {
         bankroll = bankroll + any7 * 5
-        bankrollDisplay.innerText = "Bankroll: " + bankroll
+        bankrollDisplay.innerText = "Bankroll: $" + bankroll
         any7Display.innerText = "You won your Any 7 bet, house pays you 5:1!"
-        any7Display.style.color ="yellow"
-        setTimeout(clear7, 4000)
-        setTimeout(clearSide, 4100)
+        any7Display.style.color ="#F2E307"
+        setTimeout(clear7, 3000)
+        setTimeout(clearSide, 3100)
     } else {
         bankroll = bankroll - any7
-        bankrollDisplay.innerText = "Bankroll: " + bankroll
-        any7Display.innerText = "You lost your Any 7 bet."
-        any7Display.style.color ="yellow"
-        setTimeout(clear7, 4000)
-        setTimeout(clearSide, 4100)
+        bankrollDisplay.innerText = "Bankroll: $" + bankroll
+        any7Display.innerText = "You lost your Any 7 bet!"
+        any7Display.style.color ="#F2E307"
+        setTimeout(clear7, 3000)
+        setTimeout(clearSide, 3100)
     }
 }
 
@@ -1133,18 +1160,18 @@ if (anyCraps !== 0) {
     let anyCrapsRoll = diceRollResult1 + diceRollResult2
     if (anyCrapsRoll === 2 || anyCrapsRoll === 3 || anyCrapsRoll === 12) {
         bankroll = bankroll + anyCraps * 8
-        bankrollDisplay.innerText = "Bankroll: " + bankroll
+        bankrollDisplay.innerText = "Bankroll: $" + bankroll
         anyCrapsDisplay.innerText = "You won your Any Craps bet, house pays you 8:1!"
-        anyCrapsDisplay.style.color ="yellow"
-        setTimeout(clearCraps, 4000)
-        setTimeout(clearSide, 4100)
+        anyCrapsDisplay.style.color ="#F2E307"
+        setTimeout(clearCraps, 3000)
+        setTimeout(clearSide, 3100)
     } else {
         bankroll = bankroll - any7
-        bankrollDisplay.innerText = "Bankroll: " + bankroll
+        bankrollDisplay.innerText = "Bankroll: $" + bankroll
         anyCrapsDisplay.innerText = "You lost your Any Craps bet!"
-        anyCrapsDisplay.style.color ="yellow"
-        setTimeout(clearCraps, 4000)
-        setTimeout(clearSide, 4100)
+        anyCrapsDisplay.style.color ="#F2E307"
+        setTimeout(clearCraps, 3000)
+        setTimeout(clearSide, 3100)
     }
 }
 
@@ -1187,25 +1214,25 @@ if (anyCraps !== 0) {
         // }
 
         if (point === 7 || point === 11) {
-            messages.innerText = "Lucky Shooter, You Win"
-            messages.style.color = "red"
+            messages.innerText = "Lucky Shooter, You Win!"
+            
             bankroll = bankroll + wagerAmount
-            bankrollDisplay.innerText = "Bankroll: " + bankroll
-            setTimeout(clearAll, 4000)
+            bankrollDisplay.innerText = "Bankroll: $" + bankroll
+            setTimeout(clearAll, 3000)
 
             
         } else if (point === 2 || point === 3 || point === 12) {
-            messages.innerText = "Not So Lucky Shooter, You Crapped Out"
-            messages.style.color = "red"
+            messages.innerText = "Not So Lucky Shooter, You Crapped Out!"
+            
             bankroll = bankroll - wagerAmount
-            bankrollDisplay.innerText = "Bankroll: " + bankroll
-            setTimeout(clearAll, 4000)
+            bankrollDisplay.innerText = "Bankroll: $" + bankroll
+            setTimeout(clearAll, 3000)
         }    
         else { 
-        pointText.innerText = "Current Point: " + point + " keep shooting to see how lucky you are!"
-        pointText.style.color = "yellow"
-        wagerDisplay.innerText ="Your current wager  is "+ wagerAmount+", If your feeling real lucky,  you can press your bet. Select chip to increase wager."
-        messages.innerText = ""
+        pointText.innerText = "Current Point: " + point 
+        pointText.style.color = "#F2E307"
+        wagerDisplay.innerText ="Your current wager  is $"+ wagerAmount+", If your feeling real lucky,  you can press your bet! Select chip to increase wager!"
+        messages.innerText = "Keep shooting to see if you hit your point before you roll a 7!"
         
         
         
@@ -1248,10 +1275,10 @@ if (anyCraps !== 0) {
 
             if (currentRoll === point)  {
             messages.innerText = "You hit your point... Your a real shooter kid!"
-            messages.style.color = "red"
+           
             bankroll = bankroll + wagerAmount
-            bankrollDisplay.innerText = "Bankroll: " + bankroll
-            setTimeout(clearAll, 4000)
+            bankrollDisplay.innerText = "Bankroll: $" + bankroll
+            setTimeout(clearAll, 3000)
                 // if (placeBetNumber["4"].value !== 0 ||
                 // placeBetNumber["5"].value !== 0 ||
                 // placeBetNumber["6"].value !== 0 ||
@@ -1276,24 +1303,24 @@ if (anyCraps !== 0) {
                 // placeBetNumber["8"].value !== 0 ||
                 // placeBetNumber["9"].value !== 0 ||
                 // placeBetNumber["10"].value !== 0) {
-                    messages.innerText = "You crappeed out kid, the House always wins!!"
-                    messages.style.color = "red"
+                    wagerDisplay.innerText = "Your current wager  is $"+ wagerAmount
+                    messages.innerText = "You crapped out kid, the House always wins!"
                     bankroll = bankroll - wagerAmount
-                    bankrollDisplay.innerText = "Bankroll: " + bankroll
-                    wagerDisplay.innerHTML = ""
+                    bankrollDisplay.innerText = "Bankroll: $" + bankroll
+                    
                     // placeBetsNotes.innerHTML = ""
                     // let placeMessage = document.createElement("h2")
                     // placeMessage.innerText = "You lost your place bet on number 4!"
                     // placeBetsNotes.appendChild(placeMessage)
-                    setTimeout(clearAll, 4000)
+                    setTimeout(clearAll, 3000)
                 
                }
              else {
                 
                 
-                wagerDisplay.innerText = wagerDisplay.innerText ="Your current wager  is "+ wagerAmount+", If your feeling real lucky,  you can press your bet. Select chip to increase wager."
+                wagerDisplay.innerText ="Your current wager  is $"+ wagerAmount+", If your feeling real lucky,  you can press your bet! Select chip to increase wager!"
                 messages.innerText = "Keep shooting kid!"
-                messages.style.color = "red"
+                
             
             
             }
@@ -1301,10 +1328,14 @@ if (anyCraps !== 0) {
 
         
     
-        if (bankroll === 0) {
+        if (bankroll <= 0) {
             
-            setTimeout(gameOver, 4000)  
+            setTimeout(gameOver, 3000)  
               
+        }
+
+        if (bankroll >= 2000){
+            setTimeout(wonGame, 3000)
         }
 
         

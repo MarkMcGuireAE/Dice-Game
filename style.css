@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(52, 119, 52);
+    background-color:  #93BFB3;
     display: grid;
     grid-template-columns: 1fr 3fr;
     grid-template-rows: 1fr 2fr 1fr;
@@ -43,6 +43,7 @@ body{
     text-align: center;
     
     
+    
 
 }
 
@@ -52,6 +53,7 @@ body{
     grid-column-end: 1;
     grid-row-start: 1;
     grid-row-end: 3;
+    
 }
 
 
@@ -67,7 +69,7 @@ body{
     position: absolute;
     height: 100px;
     width: 100px;
-    top: 400px;
+    top: 450px;
     right: 250px;
 
 }
@@ -79,7 +81,7 @@ body{
     grid-row-start: 2;
     grid-row-end: 2; */
     position: absolute;
-    top: 500px;
+    top: 550px;
     right: 250px;
     height: 100px;
     width: 100px;
@@ -104,7 +106,8 @@ body{
 }
 
 .wager-menu h3{
-    display: inline-block
+    display: inline-block;
+    color: 
 }
 
 .field {
@@ -192,16 +195,19 @@ body{
 .sidebet-menu h2{
     text-align: center;
     font-size: 40px;
+    color: #025940
 }
 
 .sidebet-menu h3{
     text-align: center;
     font-size: 30px;
+    color:  #025940
 }
 
 .sidebet-menu h4{
     text-align: center;
     font-size: 20px;
+    color: #025940;
 }
 
 .sidebet-menu hr {
@@ -210,8 +216,29 @@ body{
     font-size: 30px;
     
 }
-
-.roll-dice {
-    background-color: red;
-    color: white;
+.bankroll {
+    font-size: 40px;
+    color: 
+    #025940
 }
+
+.messages {
+    color: #D91111;
+}
+
+.reset-image {
+    height: 150px;
+    width: 150px;
+}
+
+.casino {
+    height: 440px;
+    width: 520px;
+    position: relative;
+    top: 60px;
+}
+
+.point {
+    color: #F2E307
+}
+
