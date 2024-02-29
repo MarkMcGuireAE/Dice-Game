@@ -3,7 +3,7 @@ This game was developed as my first coding project during my 6th week of the 15 
 
 ### Game Link
 
-[The Ultimate Dice Game](https://markmcguireae.github.io/Dice-Game)
+[The Ultimate Dice Game](https://ultimatedicegame.netlify.app/)
 
 ### Screenshots
 
